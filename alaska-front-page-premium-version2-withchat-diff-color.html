@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Advanced SEO Meta Tags -->
+    <meta name="description" content="Experience the ultimate Alaska dream vacation. Book guided wildlife tours, glacier walks, multi-day guarantee departure tours, and premium cruise transfers. Connect instantly via WhatsApp for pricing.">
+    <meta name="keywords" content="Alaska travel, Alaska tours, Anchorage tours, glacier walk, bear viewing, Alaska cruise transfers, Denali tours, WhatsApp travel booking">
+    <meta name="author" content="Alaska Travel Services">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://alaskatravelservices.net/">
+    
+    <!-- Open Graph / Social SEO -->
+    <meta property="og:title" content="Alaska Travel Services | Luxury Tours & Wilderness Vacations">
+    <meta property="og:description" content="Experience the ultimate Alaska dream vacation. Connect instantly via our automated assistants on WhatsApp, Instagram, or Messenger.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://alaskatravelservices.net/">
+    
+    <!-- Structured Data (JSON-LD) for enhanced Google Search results -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TravelAgency",
+      "name": "Alaska Travel Services",
+      "image": "https://picsum.photos/id/1015/1920/1080",
+      "url": "https://alaskatravelservices.net/",
+      "telephone": "+19074402646",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "P.O. Box 211089",
+        "addressLocality": "Anchorage",
+        "addressRegion": "AK",
+        "postalCode": "99521",
+        "addressCountry": "US"
+      },
+      "priceRange": "$$$",
+      "sameAs": [
+        "https://www.facebook.com/alaskatravelservices",
+        "https://www.instagram.com/alaskatravelservices"
+      ]
+    }
+    </script>
+    
+    <title>Alaska Travel Services | Luxury Tours & Instant AI Booking</title>
+    
+    <!-- Premium Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        premium: {
+                            obsidian: '#0A0A0A',   // Ultra Dark Black
+                            charcoal: '#2D2D2D',   // Deep Gray
+                            copper: '#C07D5E',     // Rose Gold / Copper Accent
+                            alabaster: '#F9F8F6',  // Warm Off-White
+                            white: '#FFFFFF',
+                            whatsapp: '#25D366', // WhatsApp Green
+                            messenger: '#00B2FF' // Messenger Blue
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        serif: ['"Cormorant Garamond"', 'serif'],
+                    },
+                    boxShadow: {
+                        'luxury': '0 20px 40px -15px rgba(0,0,0,0.05)',
+                        'copper-glow': '0 0 20px rgba(192, 125, 94, 0.4)',
+                        'chat-glow': '0 10px 25px rgba(0,0,0,0.15)'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Base Styling & Scrollbar */
+        body { background-color: #F9F8F6; }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #F9F8F6; }
+        ::-webkit-scrollbar-thumb { background: #C07D5E; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #0A0A0A; }
+
+        /* Scroll Progress Bar */
+        #scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 3px;
+            background: #C07D5E;
+            z-index: 1000;
+            transition: width 0.1s;
+        }
+
+        /* Advanced Reveal Animations */
+        .reveal-up { opacity: 0; transform: translateY(50px); transition: all 1s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal-left { opacity: 0; transform: translateX(-50px); transition: all 1s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal-right { opacity: 0; transform: translateX(50px); transition: all 1s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal-up.active, .reveal-left.active, .reveal-right.active { opacity: 1; transform: translate(0, 0); }
+        
+        /* Staggered Delays */
+        .delay-100 { transition-delay: 100ms; }
+        .delay-200 { transition-delay: 200ms; }
+        .delay-300 { transition-delay: 300ms; }
+
+        /* Image Effects */
+        .img-zoom-container { overflow: hidden; position: relative; }
+        .img-zoom { transition: transform 1.5s cubic-bezier(0.16, 1, 0.3, 1); }
+        .img-zoom-container:hover .img-zoom { transform: scale(1.05); }
+        
+        /* Ken Burns Hero Effect */
+        @keyframes kenBurns {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.15); }
+        }
+        .hero-pan { animation: kenBurns 25s ease-in-out infinite alternate; }
+
+        /* Glass Header */
+        .header-glass {
+            background: rgba(10, 10, 10, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        /* Interactive Card Overlay */
+        .card-overlay {
+            background: linear-gradient(to top, rgba(10, 10, 10, 0.95) 0%, rgba(10, 10, 10, 0.4) 50%, transparent 100%);
+            opacity: 0.8;
+            transition: opacity 0.5s ease;
+        }
+        .img-zoom-container:hover .card-overlay { opacity: 1; }
+        
+        /* Custom Button Hover */
+        .btn-copper {
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        .btn-copper::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 0%;
+            background-color: #0A0A0A;
+            transition: all 0.3s ease;
+            z-index: -1;
+        }
+        .btn-copper:hover::after { height: 100%; }
+        .btn-copper:hover { color: #FFFFFF; border-color: #0A0A0A; }
+
+        /* Webchat Widget Animations */
+        .chat-window {
+            transform-origin: bottom right;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .chat-window.hidden-chat {
+            transform: scale(0);
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        /* Instagram Gradient */
+        .bg-instagram {
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+        }
+    </style>
+</head>
+<body class="font-sans text-premium-charcoal antialiased overflow-x-hidden">
+
+    <!-- Scroll Progress -->
+    <div id="scroll-progress"></div>
+
+    <!-- Header Navigation -->
+    <header id="navbar" class="fixed w-full z-50 transition-all duration-500 py-6 top-0">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <nav class="flex justify-between items-center" aria-label="Main Navigation">
+                
+                <!-- Logo -->
+                <a href="#" class="flex-shrink-0 flex items-center z-50 group">
+                    <span class="font-serif font-bold text-2xl md:text-3xl text-white tracking-wide transition-colors group-hover:text-premium-copper nav-text">
+                        Alaska<span class="font-light italic text-premium-copper">Travel</span>
+                    </span>
+                </a>
+
+                <!-- Desktop Menu -->
+                <div class="hidden lg:flex space-x-8 items-center bg-white/5 backdrop-blur-md px-8 py-3 rounded-full border border-white/10 nav-pill transition-all">
+                    <a href="#activities" class="text-white hover:text-premium-copper font-medium text-xs uppercase tracking-widest transition-colors nav-link">Activities</a>
+                    <a href="#transfers" class="text-white hover:text-premium-copper font-medium text-xs uppercase tracking-widest transition-colors nav-link">Transfers</a>
+                    <a href="#packages" class="text-white hover:text-premium-copper font-medium text-xs uppercase tracking-widest transition-colors nav-link">Tours</a>
+                    <a href="#automation" class="text-premium-copper hover:text-white font-bold text-xs uppercase tracking-widest transition-colors nav-link flex items-center">
+                        <i class="fa-brands fa-whatsapp mr-2 text-sm"></i> Instant Quote
+                    </a>
+                </div>
+
+                <!-- CTA & Mobile Toggle -->
+                <div class="flex items-center space-x-4 z-50">
+                    <a href="#contact" class="hidden md:inline-flex bg-premium-copper text-white px-6 py-2.5 rounded-none font-bold text-xs uppercase tracking-widest hover:bg-white hover:text-premium-obsidian hover:shadow-copper-glow transition-all duration-300">
+                        Plan Journey
+                    </a>
+                    <button id="mobile-menu-btn" class="lg:hidden text-white hover:text-premium-copper focus:outline-none nav-text p-2" aria-label="Toggle menu">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </nav>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="fixed inset-0 bg-premium-obsidian/98 backdrop-blur-xl z-40 hidden opacity-0 transition-opacity duration-300 flex flex-col justify-center items-center">
+            <button id="close-menu-btn" class="absolute top-8 right-8 text-white text-3xl hover:text-premium-copper transition-colors"><i class="fa-solid fa-xmark"></i></button>
+            <div class="flex flex-col text-center space-y-8 w-full px-6">
+                <a href="#activities" class="mobile-link text-3xl font-serif text-white hover:text-premium-copper transition-colors">Summer Activities</a>
+                <a href="#transfers" class="mobile-link text-3xl font-serif text-white hover:text-premium-copper transition-colors">Cruise Transfers</a>
+                <a href="#packages" class="mobile-link text-3xl font-serif text-white hover:text-premium-copper transition-colors">Guarantee Departures</a>
+                <a href="#automation" class="mobile-link text-3xl font-serif text-premium-copper flex items-center justify-center">
+                    <i class="fa-brands fa-whatsapp mr-3"></i> Instant Chat
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="relative h-screen min-h-[700px] flex items-center justify-center overflow-hidden bg-premium-obsidian">
+            <!-- Background with Ken Burns Pan -->
+            <div class="absolute inset-0 z-0">
+                <img src="https://picsum.photos/id/1015/1920/1080" alt="Majestic Alaskan Mountain Range" class="w-full h-full object-cover object-center hero-pan transform scale-105" crossorigin="anonymous" />
+                <div class="absolute inset-0 bg-gradient-to-b from-premium-obsidian/80 via-premium-obsidian/40 to-premium-obsidian/90"></div>
+            </div>
+
+            <!-- Content -->
+            <div class="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-20">
+                <p class="text-premium-copper font-bold tracking-[0.3em] text-xs uppercase mb-6 reveal-up">Established Excellence in Alaskan Travel</p>
+                <h1 class="text-5xl md:text-7xl lg:text-8xl font-serif text-white mb-8 leading-[1.1] reveal-up delay-100 drop-shadow-2xl">
+                    Beyond the Edge <br><span class="italic font-light text-premium-alabaster">of the World</span>
+                </h1>
+                <p class="text-lg md:text-xl text-premium-alabaster/80 mb-12 font-light max-w-2xl mx-auto reveal-up delay-200">
+                    Curated wilderness safaris, exclusive glacier encounters, and seamless journeys across the Great Land.
+                </p>
+                
+                <div class="reveal-up delay-300 flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <a href="#activities" class="inline-flex items-center justify-center border border-premium-copper text-premium-copper hover:bg-premium-copper hover:text-white px-8 py-4 uppercase tracking-widest text-xs font-bold transition-all duration-500 w-full sm:w-auto">
+                        Discover Experiences
+                    </a>
+                    <a href="#automation" class="inline-flex items-center justify-center bg-premium-whatsapp text-white border border-premium-whatsapp hover:bg-white hover:text-premium-whatsapp px-8 py-4 uppercase tracking-widest text-xs font-bold transition-all duration-500 w-full sm:w-auto">
+                        <i class="fa-brands fa-whatsapp text-lg mr-2"></i> Chat for Prices
+                    </a>
+                </div>
+            </div>
+
+            <!-- Scroll Indicator -->
+            <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-10 flex flex-col items-center reveal-up delay-300">
+                <span class="text-white/50 uppercase tracking-widest text-[10px] mb-3">Scroll to Explore</span>
+                <div class="w-[1px] h-16 bg-gradient-to-b from-white/50 to-transparent"></div>
+            </div>
+        </section>
+
+        <!-- NEW: Social Automation & Instant Pricing Section -->
+        <section id="automation" class="py-24 bg-white relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-96 h-96 bg-premium-alabaster rounded-full blur-3xl translate-x-1/3 -translate-y-1/3 opacity-50 z-0"></div>
+            
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <header class="text-center mb-16 reveal-up">
+                    <h2 class="text-premium-copper font-bold tracking-[0.2em] text-xs uppercase mb-4">Smart Travel Planning</h2>
+                    <h3 class="text-3xl md:text-5xl font-serif text-premium-obsidian mb-4">Instant Quotes & Itineraries</h3>
+                    <p class="text-premium-charcoal/70 max-w-2xl mx-auto font-light leading-relaxed">
+                        Skip the waiting. Connect with our intelligent travel assistants on your favorite social platforms to get real-time pricing, tour availability, and customized Alaskan itineraries instantly.
+                    </p>
+                </header>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- WhatsApp Automation -->
+                    <div class="bg-premium-alabaster p-8 border border-white hover:border-premium-whatsapp/30 shadow-sm hover:shadow-luxury transition-all duration-300 reveal-up text-center group cursor-pointer">
+                        <div class="w-16 h-16 mx-auto bg-premium-whatsapp text-white rounded-full flex items-center justify-center text-3xl mb-6 shadow-lg group-hover:scale-110 transition-transform">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </div>
+                        <h4 class="text-xl font-serif font-bold text-premium-obsidian mb-3">WhatsApp Assistant</h4>
+                        <p class="text-sm font-light text-premium-charcoal/70 mb-6">Text us your travel dates and party size to receive automated pricing options directly to your phone.</p>
+                        <a href="https://wa.me/19074402646" target="_blank" rel="noopener noreferrer" class="inline-block text-premium-whatsapp font-bold text-xs uppercase tracking-widest border-b-2 border-premium-whatsapp pb-1 hover:text-premium-obsidian hover:border-premium-obsidian transition-colors">Start Chat <i class="fa-solid fa-arrow-right ml-1"></i></a>
+                    </div>
+
+                    <!-- Messenger Automation -->
+                    <div class="bg-premium-alabaster p-8 border border-white hover:border-premium-messenger/30 shadow-sm hover:shadow-luxury transition-all duration-300 reveal-up delay-100 text-center group cursor-pointer">
+                        <div class="w-16 h-16 mx-auto bg-premium-messenger text-white rounded-full flex items-center justify-center text-3xl mb-6 shadow-lg group-hover:scale-110 transition-transform">
+                            <i class="fa-brands fa-facebook-messenger"></i>
+                        </div>
+                        <h4 class="text-xl font-serif font-bold text-premium-obsidian mb-3">Messenger Bot</h4>
+                        <p class="text-sm font-light text-premium-charcoal/70 mb-6">Browse interactive carousels of our tours and book transfers seamlessly within Facebook Messenger.</p>
+                        <a href="#" class="inline-block text-premium-messenger font-bold text-xs uppercase tracking-widest border-b-2 border-premium-messenger pb-1 hover:text-premium-obsidian hover:border-premium-obsidian transition-colors">Connect <i class="fa-solid fa-arrow-right ml-1"></i></a>
+                    </div>
+
+                    <!-- Instagram Automation -->
+                    <div class="bg-premium-alabaster p-8 border border-white hover:border-pink-400/30 shadow-sm hover:shadow-luxury transition-all duration-300 reveal-up delay-200 text-center group cursor-pointer">
+                        <div class="w-16 h-16 mx-auto bg-instagram text-white rounded-full flex items-center justify-center text-3xl mb-6 shadow-lg group-hover:scale-110 transition-transform">
+                            <i class="fa-brands fa-instagram"></i>
+                        </div>
+                        <h4 class="text-xl font-serif font-bold text-premium-obsidian mb-3">IG Travel Concierge</h4>
+                        <p class="text-sm font-light text-premium-charcoal/70 mb-6">DM us keywords like "Glacier" or "Denali" to trigger automated visual guides and exclusive Instagram pricing.</p>
+                        <a href="#" class="inline-block text-pink-600 font-bold text-xs uppercase tracking-widest border-b-2 border-pink-600 pb-1 hover:text-premium-obsidian hover:border-premium-obsidian transition-colors">Message Us <i class="fa-solid fa-arrow-right ml-1"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Activities Section (Magazine Grid Layout) -->
+        <section id="activities" class="py-32 bg-premium-alabaster relative">
+            <!-- Decorative Elements -->
+            <div class="absolute top-0 left-0 w-64 h-64 bg-premium-copper/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
+            
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <header class="flex flex-col md:flex-row justify-between items-end mb-20 reveal-up">
+                    <div class="max-w-2xl">
+                        <h2 class="text-premium-copper font-bold tracking-[0.2em] text-xs uppercase mb-4">Summer Expeditions</h2>
+                        <h3 class="text-4xl md:text-5xl lg:text-6xl font-serif text-premium-obsidian leading-tight">Authentic Encounters <br><span class="italic text-premium-charcoal">in the Wild</span></h3>
+                    </div>
+                    <p class="text-premium-charcoal/70 max-w-md mt-6 md:mt-0 font-light border-l border-premium-copper pl-6">
+                        Enjoy 10% off early summer bookings. Experience our highly sought-after adventures departing directly from Anchorage.
+                    </p>
+                </header>
+
+                <!-- Asymmetrical CSS Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+                    
+                    <!-- Featured Large Item -->
+                    <article class="md:col-span-8 group img-zoom-container reveal-up bg-white overflow-hidden shadow-luxury">
+                        <div class="relative h-[60vh] min-h-[400px]">
+                            <img src="https://picsum.photos/id/1036/1200/800" alt="The Grand Tour of Anchorage Scenic View" class="w-full h-full object-cover img-zoom" crossorigin="anonymous">
+                            <div class="absolute inset-0 card-overlay"></div>
+                            
+                            <!-- Content positioned over image -->
+                            <div class="absolute bottom-0 left-0 p-8 md:p-12 w-full">
+                                <span class="bg-premium-copper text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 mb-4 inline-block">Signature Tour</span>
+                                <h4 class="text-3xl md:text-4xl font-serif text-white mb-3">The Grand Tour of Anchorage</h4>
+                                <p class="text-white/80 font-light max-w-md mb-6 hidden md:block">Immerse yourself in the rich history, indigenous culture, and breathtaking viewpoints of Alaska's largest city.</p>
+                                <button class="text-premium-copper text-xs uppercase tracking-widest font-bold flex items-center group/btn open-chat-trigger">
+                                    Chat for Pricing <i class="fa-solid fa-comment-dots ml-2 transition-transform group-hover/btn:translate-x-2"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Smaller Item -->
+                    <article class="md:col-span-4 group img-zoom-container reveal-up delay-100 bg-white overflow-hidden shadow-luxury">
+                        <div class="relative h-[60vh] min-h-[400px]">
+                            <img src="https://picsum.photos/id/1020/600/800" alt="Alaskan Wildlife Bear Viewing" class="w-full h-full object-cover img-zoom" crossorigin="anonymous">
+                            <div class="absolute inset-0 card-overlay"></div>
+                            <div class="absolute bottom-0 left-0 p-8 w-full">
+                                <h4 class="text-2xl font-serif text-white mb-2">Bear Viewing Safari</h4>
+                                <p class="text-white/70 font-light text-sm mb-4">An unforgettable, safe viewing experience in natural habitats.</p>
+                                <button class="text-premium-copper text-[10px] uppercase tracking-widest font-bold border-b border-premium-copper pb-1 hover:text-white transition-colors open-chat-trigger">Get Details via Chat</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Medium Item -->
+                    <article class="md:col-span-6 group img-zoom-container reveal-up bg-white overflow-hidden shadow-luxury">
+                        <div class="relative h-[40vh] min-h-[300px]">
+                            <img src="https://picsum.photos/id/1018/800/600" alt="Glacier Walk Adventure" class="w-full h-full object-cover img-zoom" crossorigin="anonymous">
+                            <div class="absolute inset-0 card-overlay"></div>
+                            <div class="absolute bottom-0 left-0 p-8 w-full">
+                                <h4 class="text-2xl font-serif text-white mb-2">Glacier Walk Adventure</h4>
+                                <p class="text-white/70 font-light text-sm mb-4">Step onto ancient ice formations with expert safety guides.</p>
+                                <button class="text-premium-copper text-[10px] uppercase tracking-widest font-bold border-b border-premium-copper pb-1 hover:text-white transition-colors open-chat-trigger">Get Details via Chat</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Medium Item -->
+                    <article class="md:col-span-6 group img-zoom-container reveal-up delay-100 bg-white overflow-hidden shadow-luxury">
+                        <div class="relative h-[40vh] min-h-[300px]">
+                            <img src="https://picsum.photos/id/174/800/600" alt="Big Wildlife Tour Scenery" class="w-full h-full object-cover img-zoom" crossorigin="anonymous">
+                            <div class="absolute inset-0 card-overlay"></div>
+                            <div class="absolute bottom-0 left-0 p-8 w-full">
+                                <h4 class="text-2xl font-serif text-white mb-2">Big Wildlife Tour</h4>
+                                <p class="text-white/70 font-light text-sm mb-4">Journey from Anchorage to spot iconic animals in the wild.</p>
+                                <button class="text-premium-copper text-[10px] uppercase tracking-widest font-bold border-b border-premium-copper pb-1 hover:text-white transition-colors open-chat-trigger">Get Details via Chat</button>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Cruise Transfers Section -->
+        <section id="transfers" class="py-32 bg-premium-obsidian text-white relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col lg:flex-row gap-16">
+                    
+                    <!-- Left: Sticky Content -->
+                    <div class="lg:w-1/3 lg:sticky lg:top-32 h-fit reveal-left">
+                        <h2 class="text-premium-copper font-bold tracking-[0.2em] text-xs uppercase mb-4">Port Connections</h2>
+                        <h3 class="text-4xl md:text-5xl font-serif mb-6 leading-tight">Seamless Cruise <br><span class="italic text-white/70">Transfers</span></h3>
+                        <p class="text-white/60 font-light mb-8 leading-relaxed">
+                            Start or end your voyage with elegance. We provide reliable, comfortable transportation between Anchorage, Seward, and Whittier with a diverse fleet tailored to your party size.
+                        </p>
+                        <button class="inline-flex items-center text-premium-copper uppercase tracking-widest text-xs font-bold hover:text-white transition-colors open-chat-trigger">
+                            <i class="fa-solid fa-robot mr-3"></i> Automated Quote
+                        </button>
+                    </div>
+
+                    <!-- Right: Scrolling Content -->
+                    <div class="lg:w-2/3 space-y-16">
+                        
+                        <!-- Routes -->
+                        <div class="reveal-up">
+                            <h4 class="font-serif text-2xl mb-8 border-b border-white/10 pb-4">Popular Routes</h4>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div class="bg-white/5 p-6 border border-white/5 hover:border-premium-copper/50 transition-colors group cursor-pointer open-chat-trigger">
+                                    <h5 class="font-bold text-lg mb-2 flex items-center justify-between">
+                                        Seward <i class="fa-solid fa-arrow-right-long text-premium-copper"></i> Anchorage
+                                    </h5>
+                                    <p class="text-white/50 text-sm font-light">Direct port to hotel or airport luxury transfer.</p>
+                                </div>
+                                <div class="bg-white/5 p-6 border border-white/5 hover:border-premium-copper/50 transition-colors group cursor-pointer open-chat-trigger">
+                                    <h5 class="font-bold text-lg mb-2 flex items-center justify-between">
+                                        Whittier <i class="fa-solid fa-arrow-right-long text-premium-copper"></i> Anchorage
+                                    </h5>
+                                    <p class="text-white/50 text-sm font-light">Scenic highway journey through the mountains.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Fleet -->
+                        <div class="reveal-up delay-100">
+                            <h4 class="font-serif text-2xl mb-8 border-b border-white/10 pb-4">Our Fleet</h4>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div class="flex items-start space-x-6 bg-premium-charcoal/30 p-6 rounded-sm">
+                                    <div class="text-premium-copper text-3xl mt-1"><i class="fa-solid fa-car-side"></i></div>
+                                    <div>
+                                        <h5 class="font-bold text-lg">Premium SUV</h5>
+                                        <p class="text-white/50 text-sm mb-3">2 to 3 passengers. Perfect for couples.</p>
+                                        <button class="text-premium-copper text-[10px] uppercase tracking-widest font-bold open-chat-trigger">Check Pricing</button>
+                                    </div>
+                                </div>
+                                <div class="flex items-start space-x-6 bg-premium-charcoal/30 p-6 rounded-sm">
+                                    <div class="text-premium-copper text-3xl mt-1"><i class="fa-solid fa-van-shuttle"></i></div>
+                                    <div>
+                                        <h5 class="font-bold text-lg">Executive Van</h5>
+                                        <p class="text-white/50 text-sm mb-3">Up to 15 passengers. Ideal for families.</p>
+                                        <button class="text-premium-copper text-[10px] uppercase tracking-widest font-bold open-chat-trigger">Check Pricing</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Multi-Day Tours Section -->
+        <section id="packages" class="py-32 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <header class="text-center mb-20 reveal-up">
+                    <h2 class="text-premium-copper font-bold tracking-[0.2em] text-xs uppercase mb-4">2024 / 2025 Collection</h2>
+                    <h3 class="text-4xl md:text-5xl lg:text-6xl font-serif text-premium-obsidian mb-6">Guarantee Departure Tours</h3>
+                    <p class="text-premium-charcoal/70 max-w-2xl mx-auto font-light">Expertly crafted multi-day itineraries. Chat with our bot to customize your journey or check real-time availability.</p>
+                </header>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                    <!-- Tour 1 -->
+                    <article class="flex flex-col bg-premium-alabaster rounded-none shadow-luxury reveal-up group">
+                        <div class="relative h-72 img-zoom-container overflow-hidden">
+                            <img src="https://picsum.photos/id/1043/800/600" alt="Alaska Explorer Scenic Landscape" class="w-full h-full object-cover img-zoom" crossorigin="anonymous">
+                            <div class="absolute top-4 left-4 bg-premium-obsidian text-white text-[10px] px-3 py-1 uppercase tracking-widest font-bold">6 Days / 5 Nights</div>
+                        </div>
+                        <div class="p-8 flex flex-col flex-grow bg-white border border-t-0 border-premium-alabaster">
+                            <h4 class="text-2xl font-serif text-premium-obsidian mb-3">Alaska Explorer</h4>
+                            <p class="text-premium-charcoal/70 font-light mb-8 flex-grow text-sm leading-relaxed">A perfect introductory journey covering the majestic highlights of Southcentral Alaska.</p>
+                            <button class="btn-copper border border-premium-copper text-premium-obsidian hover:text-white text-center py-3 text-xs uppercase tracking-widest font-bold w-full open-chat-trigger">Ask Bot for Dates</button>
+                        </div>
+                    </article>
+
+                    <!-- Tour 2 (Featured) -->
+                    <article class="flex flex-col bg-premium-alabaster rounded-none shadow-luxury reveal-up delay-100 group relative transform md:-translate-y-4">
+                        <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-premium-copper text-white text-[10px] px-4 py-1 uppercase tracking-widest font-bold z-20 whitespace-nowrap shadow-md">Most Revered</div>
+                        <div class="relative h-72 img-zoom-container overflow-hidden">
+                            <img src="https://picsum.photos/id/1044/800/600" alt="Denali National Park Mountains" class="w-full h-full object-cover img-zoom" crossorigin="anonymous">
+                            <div class="absolute top-4 left-4 bg-premium-obsidian text-white text-[10px] px-3 py-1 uppercase tracking-widest font-bold z-10">8 Days / 7 Nights</div>
+                            <div class="absolute inset-0 border-4 border-premium-copper/30 z-10 pointer-events-none"></div>
+                        </div>
+                        <div class="p-8 flex flex-col flex-grow bg-white border border-t-0 border-premium-copper/30">
+                            <h4 class="text-2xl font-serif text-premium-obsidian mb-3">Alaska National Parks</h4>
+                            <p class="text-premium-charcoal/70 font-light mb-8 flex-grow text-sm leading-relaxed">Venture deep into Denali and Kenai Fjords. The ultimate itinerary for nature lovers.</p>
+                            <button class="bg-premium-obsidian text-white border border-premium-obsidian hover:bg-premium-copper hover:border-premium-copper text-center py-3 text-xs uppercase tracking-widest font-bold transition-colors w-full open-chat-trigger">Ask Bot for Dates</button>
+                        </div>
+                    </article>
+
+                    <!-- Tour 3 -->
+                    <article class="flex flex-col bg-premium-alabaster rounded-none shadow-luxury reveal-up delay-200 group">
+                        <div class="relative h-72 img-zoom-container overflow-hidden">
+                            <img src="https://picsum.photos/id/1050/800/600" alt="Grand Alaska Train Journey" class="w-full h-full object-cover img-zoom" crossorigin="anonymous">
+                            <div class="absolute top-4 left-4 bg-premium-obsidian text-white text-[10px] px-3 py-1 uppercase tracking-widest font-bold">8 Days / 7 Nights</div>
+                        </div>
+                        <div class="p-8 flex flex-col flex-grow bg-white border border-t-0 border-premium-alabaster">
+                            <h4 class="text-2xl font-serif text-premium-obsidian mb-3">Grand Alaska</h4>
+                            <p class="text-premium-charcoal/70 font-light mb-8 flex-grow text-sm leading-relaxed">An expansive expedition across landscapes, featuring train rides, cruises, and lodges.</p>
+                            <button class="btn-copper border border-premium-copper text-premium-obsidian hover:text-white text-center py-3 text-xs uppercase tracking-widest font-bold w-full open-chat-trigger">Ask Bot for Dates</button>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Interactive Webchat Widget -->
+    <div id="chat-container" class="fixed bottom-6 right-6 z-[100] flex flex-col items-end">
+        <!-- Chat Window -->
+        <div id="chat-window" class="chat-window hidden-chat bg-white w-80 sm:w-96 rounded-2xl shadow-chat-glow border border-gray-100 mb-4 overflow-hidden flex flex-col h-[450px]">
+            <!-- Header -->
+            <div class="bg-premium-obsidian p-4 flex items-center justify-between text-white">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 rounded-full bg-premium-copper flex items-center justify-center border-2 border-white">
+                        <i class="fa-solid fa-robot text-white"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-sm">Alaska Travel Bot</h4>
+                        <p class="text-[10px] text-white/70 flex items-center"><span class="w-2 h-2 rounded-full bg-green-400 mr-1 inline-block"></span> Online - Replies instantly</p>
+                    </div>
+                </div>
+                <button id="close-chat" class="text-white/70 hover:text-white transition-colors"><i class="fa-solid fa-xmark text-xl"></i></button>
+            </div>
+            
+            <!-- Messages Area -->
+            <div class="flex-grow bg-premium-alabaster/30 p-4 overflow-y-auto space-y-4" id="chat-messages">
+                <div class="flex items-start max-w-[85%]">
+                    <div class="w-8 h-8 rounded-full bg-premium-copper flex-shrink-0 flex items-center justify-center mr-2 mt-1">
+                        <i class="fa-solid fa-robot text-white text-xs"></i>
+                    </div>
+                    <div class="bg-white p-3 rounded-2xl rounded-tl-none shadow-sm text-sm text-premium-charcoal border border-gray-100">
+                        Hello! Welcome to Alaska Travel Services. I can instantly provide you with tour prices, transfer availability, or connect you to a human agent. How can I help you today?
+                    </div>
+                </div>
+                
+                <!-- Quick Options -->
+                <div class="flex flex-wrap gap-2 ml-10">
+                    <button class="bg-white border border-premium-copper/50 text-premium-obsidian text-xs px-3 py-1.5 rounded-full hover:bg-premium-copper hover:text-white transition-colors chat-option">Pricing Details</button>
+                    <button class="bg-white border border-premium-copper/50 text-premium-obsidian text-xs px-3 py-1.5 rounded-full hover:bg-premium-copper hover:text-white transition-colors chat-option">Cruise Transfers</button>
+                    <button class="bg-white border border-premium-copper/50 text-premium-obsidian text-xs px-3 py-1.5 rounded-full hover:bg-premium-copper hover:text-white transition-colors chat-option">Connect to WhatsApp</button>
+                </div>
+            </div>
+            
+            <!-- Input Area -->
+            <div class="p-3 bg-white border-t border-gray-100 flex items-center gap-2">
+                <input type="text" placeholder="Type your message..." class="flex-grow bg-premium-alabaster px-4 py-2 rounded-full text-sm outline-none focus:ring-1 focus:ring-premium-copper transition-all" id="chat-input">
+                <button class="w-10 h-10 rounded-full bg-premium-copper text-white flex items-center justify-center hover:bg-premium-obsidian transition-colors flex-shrink-0">
+                    <i class="fa-solid fa-paper-plane text-xs"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Chat Trigger Button -->
+        <button id="chat-toggle-btn" class="w-16 h-16 bg-premium-copper text-white rounded-full flex items-center justify-center text-2xl shadow-copper-glow hover:scale-110 transition-transform relative group">
+            <i class="fa-solid fa-comment-dots"></i>
+            <!-- Notification Dot -->
+            <span class="absolute top-0 right-0 w-4 h-4 bg-red-500 border-2 border-white rounded-full animate-pulse"></span>
+            
+            <!-- Hover Tooltip -->
+            <span class="absolute -top-12 right-0 bg-premium-obsidian text-white text-xs px-3 py-1.5 rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">Chat for Instant Prices</span>
+        </button>
+    </div>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-premium-charcoal text-premium-alabaster pt-24 pb-12 border-t-[4px] border-premium-copper relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
+                
+                <!-- Brand & Mission -->
+                <div class="col-span-1 md:col-span-12 lg:col-span-5">
+                    <span class="font-serif font-bold text-3xl text-white tracking-wide block mb-6">
+                        Alaska<span class="font-light italic text-premium-copper">TravelServices</span>
+                    </span>
+                    <p class="text-premium-alabaster/60 mb-8 max-w-sm leading-relaxed font-light text-sm">
+                        Dedicated to providing you with a wonderful experience. From bespoke transfers to grand expeditions, we curate the essence of Alaska. Available 24/7 via automated channels.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" aria-label="Facebook" class="w-10 h-10 border border-white/20 flex items-center justify-center rounded-full hover:bg-premium-messenger hover:border-premium-messenger transition-all text-white"><i class="fa-brands fa-facebook-messenger"></i></a>
+                        <a href="#" aria-label="Instagram" class="w-10 h-10 border border-white/20 flex items-center justify-center rounded-full hover:bg-pink-600 hover:border-pink-600 transition-all text-white"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" aria-label="WhatsApp" class="w-10 h-10 border border-white/20 flex items-center justify-center rounded-full hover:bg-premium-whatsapp hover:border-premium-whatsapp transition-all text-white"><i class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                </div>
+
+                <!-- Contact Information -->
+                <div class="col-span-1 md:col-span-6 lg:col-span-4">
+                    <h4 class="text-premium-copper font-bold tracking-[0.1em] text-xs uppercase mb-6">Connect With Us</h4>
+                    <ul class="space-y-6">
+                        <li class="flex items-start group">
+                            <i class="fa-solid fa-phone text-premium-copper mt-1 w-6"></i>
+                            <div>
+                                <p class="text-[10px] text-white/50 uppercase tracking-widest mb-1">Reservations & Inquiry</p>
+                                <a href="tel:9074402646" class="font-serif text-xl hover:text-premium-copper transition-colors">(907) 440-2646</a>
+                            </div>
+                        </li>
+                        <li class="flex items-start group">
+                            <i class="fa-solid fa-envelope text-premium-copper mt-1 w-6"></i>
+                            <div>
+                                <p class="text-[10px] text-white/50 uppercase tracking-widest mb-1">Email</p>
+                                <a href="mailto:sales@alaskatravelservices.net" class="text-sm font-light hover:text-premium-copper transition-colors">sales@alaskatravelservices.net</a>
+                            </div>
+                        </li>
+                        <li class="flex items-start group">
+                            <i class="fa-solid fa-location-dot text-premium-copper mt-1 w-6"></i>
+                            <div>
+                                <p class="text-[10px] text-white/50 uppercase tracking-widest mb-1">Mailing Address</p>
+                                <p class="text-sm font-light text-white/80">P.O. Box 211089<br>Anchorage, AK 99521 USA</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Quick Navigation -->
+                <div class="col-span-1 md:col-span-6 lg:col-span-3">
+                    <h4 class="text-premium-copper font-bold tracking-[0.1em] text-xs uppercase mb-6">Explore</h4>
+                    <ul class="space-y-3 font-light text-sm text-white/70">
+                        <li><a href="#automation" class="hover:text-premium-copper hover:translate-x-1 inline-block transition-transform text-premium-copper font-medium">Instant Pricing AI</a></li>
+                        <li><a href="#activities" class="hover:text-premium-copper hover:translate-x-1 inline-block transition-transform">Summer Activities</a></li>
+                        <li><a href="#transfers" class="hover:text-premium-copper hover:translate-x-1 inline-block transition-transform">Cruise Transfers</a></li>
+                        <li><a href="#packages" class="hover:text-premium-copper hover:translate-x-1 inline-block transition-transform">Multi-Day Tours</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-[10px] text-white/40 uppercase tracking-widest">
+                <p>&copy; 2026 Alaska Travel Services. All Rights Reserved.</p>
+                <div class="mt-4 md:mt-0 space-x-6">
+                    <a href="#" class="hover:text-premium-copper transition-colors">Privacy Policy</a>
+                    <a href="#" class="hover:text-premium-copper transition-colors">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts for Premium Interactivity & Webchat Logic -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // 1. Scroll Progress Bar
+            const progressBar = document.getElementById('scroll-progress');
+            window.addEventListener('scroll', () => {
+                const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+                const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const scrolled = (winScroll / height) * 100;
+                progressBar.style.width = scrolled + "%";
+            });
+
+            // 2. Navigation Glass Effect
+            const navbar = document.getElementById('navbar');
+            const navPill = document.querySelector('.nav-pill');
+            
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('header-glass', 'py-4');
+                    navbar.classList.remove('py-6');
+                    
+                    if(navPill) {
+                        navPill.classList.remove('bg-white/5', 'border-white/10');
+                        navPill.classList.add('bg-transparent', 'border-transparent');
+                    }
+                } else {
+                    navbar.classList.remove('header-glass', 'py-4');
+                    navbar.classList.add('py-6');
+                    
+                    if(navPill) {
+                        navPill.classList.add('bg-white/5', 'border-white/10');
+                        navPill.classList.remove('bg-transparent', 'border-transparent');
+                    }
+                }
+            });
+
+            // 3. Mobile Menu Handling
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const closeMenuBtn = document.getElementById('close-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileLinks = document.querySelectorAll('.mobile-link');
+            
+            function toggleMenu() {
+                if (mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.remove('hidden');
+                    setTimeout(() => mobileMenu.classList.remove('opacity-0'), 10);
+                    document.body.style.overflow = 'hidden';
+                } else {
+                    mobileMenu.classList.add('opacity-0');
+                    setTimeout(() => {
+                        mobileMenu.classList.add('hidden');
+                        document.body.style.overflow = '';
+                    }, 300);
+                }
+            }
+
+            mobileMenuBtn.addEventListener('click', toggleMenu);
+            closeMenuBtn.addEventListener('click', toggleMenu);
+            mobileLinks.forEach(link => link.addEventListener('click', toggleMenu));
+
+            // 4. Scroll Reveals
+            const revealElements = document.querySelectorAll('.reveal-up, .reveal-left, .reveal-right');
+            const revealOptions = { threshold: 0.15, rootMargin: "0px 0px -100px 0px" };
+
+            const revealOnScroll = new IntersectionObserver(function(entries, observer) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, revealOptions);
+
+            revealElements.forEach(el => revealOnScroll.observe(el));
+
+            // 5. Webchat Logic
+            const chatToggleBtn = document.getElementById('chat-toggle-btn');
+            const chatWindow = document.getElementById('chat-window');
+            const closeChat = document.getElementById('close-chat');
+            const chatOptions = document.querySelectorAll('.chat-option');
+            const chatMessages = document.getElementById('chat-messages');
+            const chatTriggers = document.querySelectorAll('.open-chat-trigger');
+
+            // Open/Close chat
+            function toggleChat() {
+                chatWindow.classList.toggle('hidden-chat');
+                // Remove notification dot when opened
+                const notifDot = chatToggleBtn.querySelector('.animate-pulse');
+                if(notifDot && !chatWindow.classList.contains('hidden-chat')) {
+                    notifDot.style.display = 'none';
+                }
+            }
+
+            chatToggleBtn.addEventListener('click', toggleChat);
+            closeChat.addEventListener('click', toggleChat);
+
+            // Trigger chat from page buttons
+            chatTriggers.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    if(chatWindow.classList.contains('hidden-chat')) {
+                        toggleChat();
+                    }
+                    // Simulate bot responding to specific context
+                    appendUserMessage("I'd like pricing information for this tour.");
+                    setTimeout(() => {
+                        appendBotMessage("Certainly! I can pull up real-time pricing for you. Please tell me your estimated travel dates and party size.");
+                    }, 1000);
+                });
+            });
+
+            // Simulate Chat Options clicking
+            chatOptions.forEach(opt => {
+                opt.addEventListener('click', (e) => {
+                    const text = e.target.innerText;
+                    appendUserMessage(text);
+                    e.target.parentElement.style.display = 'none'; // hide options after clicking
+                    
+                    setTimeout(() => {
+                        if(text.includes('WhatsApp')) {
+                            appendBotMessage('Great! You can connect with our automated WhatsApp assistant directly here: <br><br><a href="https://wa.me/19074402646" target="_blank" class="bg-premium-whatsapp text-white px-3 py-1.5 rounded-full inline-block mt-2 text-xs"><i class="fa-brands fa-whatsapp mr-1"></i> Open WhatsApp</a>');
+                        } else {
+                            appendBotMessage("I can help with that. Are you looking for dates in early Summer or late Summer?");
+                        }
+                    }, 800);
+                });
+            });
+
+            function appendUserMessage(text) {
+                const msgHTML = `
+                <div class="flex items-start justify-end max-w-[85%] ml-auto mt-4">
+                    <div class="bg-premium-obsidian p-3 rounded-2xl rounded-tr-none shadow-sm text-sm text-white border border-premium-obsidian">
+                        ${text}
+                    </div>
+                </div>`;
+                chatMessages.insertAdjacentHTML('beforeend', msgHTML);
+                scrollToBottom();
+            }
+
+            function appendBotMessage(text) {
+                const msgHTML = `
+                <div class="flex items-start max-w-[85%] mt-4">
+                    <div class="w-8 h-8 rounded-full bg-premium-copper flex-shrink-0 flex items-center justify-center mr-2 mt-1">
+                        <i class="fa-solid fa-robot text-white text-xs"></i>
+                    </div>
+                    <div class="bg-white p-3 rounded-2xl rounded-tl-none shadow-sm text-sm text-premium-charcoal border border-gray-100">
+                        ${text}
+                    </div>
+                </div>`;
+                chatMessages.insertAdjacentHTML('beforeend', msgHTML);
+                scrollToBottom();
+            }
+
+            function scrollToBottom() {
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+        });
+    </script>
+</body>
+</html>

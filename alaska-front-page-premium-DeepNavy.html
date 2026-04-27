@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Advanced SEO Meta Tags -->
+    <meta name="description" content="Experience premium luxury in Alaska. Book exclusive wildlife tours, private glacier expeditions, premium multi-day cruises, and chauffeur transfers. Connect instantly via our Concierge.">
+    <meta name="keywords" content="Alaska luxury travel, premium Alaska tours, private glacier tours, Alaska cruises, Anchorage chauffeur, luxury travel agency, WhatsApp travel booking">
+    <meta name="author" content="Alaska Travel Services">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://alaskatravelservices.net/">
+    
+    <!-- Open Graph / Social SEO -->
+    <meta property="og:title" content="Alaska Travel Services | Deep Ocean Luxury & Exploration">
+    <meta property="og:description" content="Explore the untamed Alaskan frontier with unrivaled elegance. Connect instantly with our travel concierge.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://alaskatravelservices.net/">
+    
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TravelAgency",
+      "name": "Alaska Travel Services",
+      "image": "https://picsum.photos/id/1015/1920/1080",
+      "url": "https://alaskatravelservices.net/",
+      "telephone": "+19074402646",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "P.O. Box 211089",
+        "addressLocality": "Anchorage",
+        "addressRegion": "AK",
+        "postalCode": "99521",
+        "addressCountry": "US"
+      },
+      "priceRange": "$$$$",
+      "sameAs": [
+        "https://www.facebook.com/alaskatravelservices",
+        "https://www.instagram.com/alaskatravelservices"
+      ]
+    }
+    </script>
+    
+    <title>Alaska Travel Services | Premium Wilderness & Cruise Expeditions</title>
+    
+    <!-- Luxury Fonts (Playfair Display + Inter) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        luxury: {
+                            navy: '#0B3D91',     // Deep Navy Blue (Primary)
+                            teal: '#2EC4B6',     // Teal / Aqua (Secondary)
+                            gold: '#D4AF37',     // Gold (Accent)
+                            white: '#F8F9FA',    // Soft White (Background)
+                            pure: '#FFFFFF',
+                            dark: '#051E47',     // Darker Navy for contrast
+                            whatsapp: '#25D366', 
+                            messenger: '#00B2FF' 
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Inter"', 'sans-serif'],
+                        serif: ['"Playfair Display"', 'serif'],
+                    },
+                    boxShadow: {
+                        'premium': '0 20px 40px -10px rgba(11, 61, 145, 0.08)',
+                        'gold-glow': '0 10px 25px rgba(212, 175, 55, 0.3)',
+                        'soft': '0 10px 30px rgba(0,0,0,0.04)'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Base Styling & Scrollbar */
+        body { background-color: #F8F9FA; color: #051E47; overflow-x: hidden; }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #F8F9FA; }
+        ::-webkit-scrollbar-thumb { background: #D4AF37; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #0B3D91; }
+
+        /* Scroll Progress Bar */
+        #scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 3px;
+            background: #D4AF37;
+            z-index: 1000;
+            transition: width 0.1s;
+        }
+
+        /* Advanced Reveal Animations */
+        .reveal-up { opacity: 0; transform: translateY(40px); transition: all 1s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal-left { opacity: 0; transform: translateX(-40px); transition: all 1s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal-right { opacity: 0; transform: translateX(40px); transition: all 1s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal-up.active, .reveal-left.active, .reveal-right.active { opacity: 1; transform: translate(0, 0); }
+        
+        /* Staggered Delays */
+        .delay-100 { transition-delay: 100ms; }
+        .delay-200 { transition-delay: 200ms; }
+        .delay-300 { transition-delay: 300ms; }
+
+        /* Elegant Header */
+        .header-scrolled {
+            background-color: rgba(248, 249, 250, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+            box-shadow: 0 4px 20px rgba(11, 61, 145, 0.05);
+        }
+
+        /* Luxury Button Hover */
+        .btn-gold {
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            transition: all 0.4s ease;
+        }
+        .btn-gold::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background-color: #0B3D91;
+            transition: left 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            z-index: -1;
+        }
+        .btn-gold:hover::before { left: 0; }
+        .btn-gold:hover { color: #FFFFFF; border-color: #0B3D91; }
+
+        .btn-navy {
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            transition: all 0.4s ease;
+        }
+        .btn-navy::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background-color: #D4AF37;
+            transition: left 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            z-index: -1;
+        }
+        .btn-navy:hover::before { left: 0; }
+        .btn-navy:hover { color: #0B3D91; border-color: #D4AF37; }
+
+        /* Subtle Image Zoom */
+        .img-wrap { overflow: hidden; position: relative; }
+        .img-zoom { transition: transform 1.5s ease; }
+        .img-wrap:hover .img-zoom { transform: scale(1.05); }
+
+        /* Webchat Widget */
+        .chat-window {
+            transform-origin: bottom right;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .chat-window.hidden-chat {
+            transform: scale(0);
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        /* Instagram Gradient */
+        .bg-instagram {
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+        }
+    </style>
+</head>
+<body class="font-sans antialiased selection:bg-luxury-gold selection:text-luxury-navy">
+
+    <!-- Scroll Progress -->
+    <div id="scroll-progress"></div>
+
+    <!-- Elegant Navigation -->
+    <header id="navbar" class="fixed w-full z-50 transition-all duration-500 py-6 top-0 px-4 sm:px-6 lg:px-8 border-b border-transparent">
+        <div class="max-w-7xl mx-auto">
+            <nav class="flex justify-between items-center" aria-label="Main Navigation">
+                
+                <!-- Logo -->
+                <a href="#" class="flex-shrink-0 flex items-center z-50 group">
+                    <span class="font-sans font-light uppercase text-xl md:text-2xl tracking-[0.2em] text-luxury-navy">
+                        Alaska<span class="font-serif font-bold text-luxury-gold italic normal-case tracking-normal ml-1">Travel</span>
+                    </span>
+                </a>
+
+                <!-- Desktop Menu -->
+                <div class="hidden lg:flex space-x-12 items-center">
+                    <a href="#activities" class="text-luxury-navy hover:text-luxury-teal font-medium text-xs uppercase tracking-widest transition-colors">Experiences</a>
+                    <a href="#transfers" class="text-luxury-navy hover:text-luxury-teal font-medium text-xs uppercase tracking-widest transition-colors">Chauffeur</a>
+                    <a href="#packages" class="text-luxury-navy hover:text-luxury-teal font-medium text-xs uppercase tracking-widest transition-colors">Journeys</a>
+                    <a href="#automation" class="text-luxury-gold hover:text-luxury-navy font-semibold text-xs uppercase tracking-widest transition-colors flex items-center">
+                        Concierge <i class="fa-solid fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+
+                <!-- CTA & Mobile Toggle -->
+                <div class="flex items-center space-x-6 z-50">
+                    <a href="#contact" class="hidden md:inline-flex btn-navy bg-luxury-navy text-luxury-white border border-luxury-navy px-8 py-3 text-xs uppercase tracking-widest transition-all duration-300">
+                        Inquire Now
+                    </a>
+                    <button id="mobile-menu-btn" class="lg:hidden text-luxury-navy focus:outline-none" aria-label="Toggle menu">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </nav>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="fixed inset-0 bg-luxury-white z-40 hidden opacity-0 transition-opacity duration-500 flex flex-col justify-center items-center">
+            <button id="close-menu-btn" class="absolute top-8 right-8 text-luxury-navy text-3xl hover:text-luxury-gold transition-colors"><i class="fa-solid fa-xmark"></i></button>
+            <div class="flex flex-col text-center space-y-8 w-full px-6">
+                <a href="#activities" class="mobile-link text-2xl font-serif italic text-luxury-navy hover:text-luxury-gold transition-colors">Experiences</a>
+                <a href="#transfers" class="mobile-link text-2xl font-serif italic text-luxury-navy hover:text-luxury-gold transition-colors">Chauffeur</a>
+                <a href="#packages" class="mobile-link text-2xl font-serif italic text-luxury-navy hover:text-luxury-gold transition-colors">Journeys</a>
+                <a href="#automation" class="mobile-link text-2xl font-sans font-light uppercase tracking-widest text-luxury-gold mt-4">
+                    Concierge
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Cinematic Split Hero Section -->
+        <section class="relative min-h-screen pt-24 lg:pt-0 flex items-center bg-luxury-pure border-b border-luxury-white">
+            <div class="w-full flex flex-col lg:flex-row h-full absolute inset-0">
+                
+                <!-- Left Side: Refined Typography -->
+                <div class="w-full lg:w-5/12 h-full flex flex-col justify-center px-8 sm:px-16 lg:px-24 xl:px-32 z-10 bg-luxury-pure relative pt-32 lg:pt-0">
+                    <div class="reveal-up">
+                        <span class="text-luxury-gold text-xs font-semibold uppercase tracking-[0.3em] mb-6 block flex items-center">
+                            <span class="w-8 h-[1px] bg-luxury-gold mr-4"></span> Premium Travel
+                        </span>
+                        
+                        <h1 class="text-5xl sm:text-6xl lg:text-7xl font-serif text-luxury-navy leading-[1.1] mb-8">
+                            Unrivaled <br>
+                            <span class="italic text-luxury-gold font-light">Elegance</span> <br>
+                            in the Wild.
+                        </h1>
+                        
+                        <p class="font-sans text-luxury-navy/70 mb-12 leading-relaxed max-w-sm font-light">
+                            Discover the majestic beauty of Alaska through curated luxury expeditions, private wildlife safaris, and seamless chauffeur transfers.
+                        </p>
+                        
+                        <div class="flex flex-col sm:flex-row items-center gap-4">
+                            <a href="#activities" class="btn-gold border border-luxury-gold bg-luxury-gold text-luxury-white px-10 py-4 uppercase tracking-widest text-xs w-full sm:w-auto text-center shadow-gold-glow">
+                                Discover More
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Side: Immersive Edge-to-Edge Image -->
+                <div class="w-full lg:w-7/12 h-[60vh] lg:h-full relative img-wrap reveal-left delay-200 order-first lg:order-last mt-20 lg:mt-0">
+                    <img src="https://picsum.photos/id/1015/1200/1000" alt="Alaskan Glaciers and Ocean" class="w-full h-full object-cover img-zoom" crossorigin="anonymous">
+                    <div class="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-luxury-pure/80 lg:from-luxury-pure via-transparent to-transparent w-full lg:w-1/3"></div>
+                </div>
+                
+            </div>
+        </section>
+
+        <!-- Social Automation: "Personalized Concierge" -->
+        <section id="automation" class="py-32 bg-luxury-white relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <header class="mb-20 reveal-up text-center">
+                    <span class="text-luxury-gold font-semibold tracking-[0.2em] text-xs uppercase mb-4 block">Always at your service</span>
+                    <h2 class="text-4xl md:text-5xl font-serif text-luxury-navy">Personalized Concierge</h2>
+                    <div class="w-16 h-[1px] bg-luxury-gold mx-auto mt-6 mb-6"></div>
+                    <p class="font-sans text-luxury-navy/60 max-w-2xl mx-auto font-light leading-relaxed">
+                        Connect directly with our intelligent concierge across your preferred platforms for immediate, discreet assistance with pricing, bespoke itineraries, and reservations.
+                    </p>
+                </header>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- WhatsApp -->
+                    <div class="bg-luxury-pure p-10 shadow-soft hover:shadow-premium transition-all duration-500 reveal-up group text-center border border-transparent hover:border-luxury-gold/20">
+                        <div class="w-14 h-14 mx-auto bg-luxury-white text-luxury-whatsapp flex items-center justify-center text-2xl mb-8 rounded-full group-hover:scale-110 transition-transform shadow-sm">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </div>
+                        <h4 class="text-xl font-serif text-luxury-navy mb-4">WhatsApp Direct</h4>
+                        <p class="font-sans font-light text-luxury-navy/60 mb-8 text-sm leading-relaxed">Message us your availability to receive immediate, tailored pricing and exclusive tour options.</p>
+                        <a href="https://wa.me/19074402646" target="_blank" class="text-luxury-gold font-semibold text-xs uppercase tracking-widest hover:text-luxury-navy transition-colors flex items-center justify-center">
+                            Initiate Chat <i class="fa-solid fa-angle-right ml-2"></i>
+                        </a>
+                    </div>
+
+                    <!-- Messenger -->
+                    <div class="bg-luxury-pure p-10 shadow-soft hover:shadow-premium transition-all duration-500 reveal-up delay-100 group text-center border border-transparent hover:border-luxury-gold/20">
+                        <div class="w-14 h-14 mx-auto bg-luxury-white text-luxury-messenger flex items-center justify-center text-2xl mb-8 rounded-full group-hover:scale-110 transition-transform shadow-sm">
+                            <i class="fa-brands fa-facebook-messenger"></i>
+                        </div>
+                        <h4 class="text-xl font-serif text-luxury-navy mb-4">Messenger Services</h4>
+                        <p class="font-sans font-light text-luxury-navy/60 mb-8 text-sm leading-relaxed">Browse elegant visual brochures and arrange private chauffeur transfers directly via Facebook.</p>
+                        <a href="#" class="text-luxury-gold font-semibold text-xs uppercase tracking-widest hover:text-luxury-navy transition-colors flex items-center justify-center">
+                            Connect <i class="fa-solid fa-angle-right ml-2"></i>
+                        </a>
+                    </div>
+
+                    <!-- Instagram -->
+                    <div class="bg-luxury-pure p-10 shadow-soft hover:shadow-premium transition-all duration-500 reveal-up delay-200 group text-center border border-transparent hover:border-luxury-gold/20">
+                        <div class="w-14 h-14 mx-auto bg-luxury-white text-pink-600 flex items-center justify-center text-2xl mb-8 rounded-full group-hover:scale-110 transition-transform shadow-sm">
+                            <i class="fa-brands fa-instagram"></i>
+                        </div>
+                        <h4 class="text-xl font-serif text-luxury-navy mb-4">Instagram Concierge</h4>
+                        <p class="font-sans font-light text-luxury-navy/60 mb-8 text-sm leading-relaxed">Send a direct message with keywords like "Glacier" for exclusive visual itineraries and rates.</p>
+                        <a href="#" class="text-luxury-gold font-semibold text-xs uppercase tracking-widest hover:text-luxury-navy transition-colors flex items-center justify-center">
+                            Message Us <i class="fa-solid fa-angle-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Activities Section: Editorial Editorial Split Layout -->
+        <section id="activities" class="py-20 bg-luxury-pure">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <header class="text-center mb-24 reveal-up">
+                    <span class="text-luxury-gold font-semibold tracking-[0.2em] text-xs uppercase mb-4 block">Curated Wilderness</span>
+                    <h2 class="text-4xl md:text-5xl font-serif text-luxury-navy">Signature Experiences</h2>
+                    <div class="w-16 h-[1px] bg-luxury-gold mx-auto mt-6 mb-6"></div>
+                </header>
+
+                <div class="space-y-32">
+                    
+                    <!-- Experience 1: Image Left, Text Right -->
+                    <article class="flex flex-col md:flex-row items-center gap-12 lg:gap-24 group reveal-up">
+                        <div class="w-full md:w-1/2 img-wrap h-[500px] shadow-premium">
+                            <img src="https://picsum.photos/id/1018/800/1000" alt="Glacier Exploration" class="w-full h-full object-cover img-zoom" crossorigin="anonymous">
+                        </div>
+                        <div class="w-full md:w-1/2 lg:pr-12 text-center md:text-left">
+                            <span class="text-luxury-gold text-xs font-semibold uppercase tracking-widest mb-3 block">01 / Ice & Ocean</span>
+                            <h3 class="text-3xl lg:text-4xl font-serif text-luxury-navy mb-6">Private Glacier Exploration</h3>
+                            <p class="font-sans text-luxury-navy/70 mb-8 font-light leading-relaxed">
+                                Step into a world of pristine, ancient ice. Accompanied by elite naturalists, you will traverse stunning glacial landscapes in complete privacy. We provide all premium technical gear required for a safe, awe-inspiring journey.
+                            </p>
+                            <button class="btn-navy border border-luxury-navy text-luxury-navy px-8 py-3 uppercase tracking-widest text-xs font-semibold open-chat-trigger">
+                                Inquire Availability
+                            </button>
+                        </div>
+                    </article>
+
+                    <!-- Experience 2: Text Left, Image Right -->
+                    <article class="flex flex-col md:flex-row-reverse items-center gap-12 lg:gap-24 group reveal-up">
+                        <div class="w-full md:w-1/2 img-wrap h-[500px] shadow-premium">
+                            <img src="https://picsum.photos/id/1020/800/1000" alt="Bear Viewing" class="w-full h-full object-cover img-zoom" crossorigin="anonymous">
+                        </div>
+                        <div class="w-full md:w-1/2 lg:pl-12 text-center md:text-left">
+                            <span class="text-luxury-gold text-xs font-semibold uppercase tracking-widest mb-3 block">02 / Wildlife</span>
+                            <h3 class="text-3xl lg:text-4xl font-serif text-luxury-navy mb-6">Exclusive Bear Safaris</h3>
+                            <p class="font-sans text-luxury-navy/70 mb-8 font-light leading-relaxed">
+                                Journey from Anchorage to secluded habitats. Observe North America's most magnificent creatures from the safety and comfort of our guided viewing platforms. An essential, breathtaking addition to any luxury itinerary.
+                            </p>
+                            <button class="btn-navy border border-luxury-navy text-luxury-navy px-8 py-3 uppercase tracking-widest text-xs font-semibold open-chat-trigger">
+                                Inquire Availability
+                            </button>
+                        </div>
+                    </article>
+
+                    <!-- Experience 3: Image Left, Text Right -->
+                    <article class="flex flex-col md:flex-row items-center gap-12 lg:gap-24 group reveal-up">
+                        <div class="w-full md:w-1/2 img-wrap h-[500px] shadow-premium">
+                            <img src="https://picsum.photos/id/1036/800/1000" alt="Anchorage Highlights" class="w-full h-full object-cover img-zoom" crossorigin="anonymous">
+                        </div>
+                        <div class="w-full md:w-1/2 lg:pr-12 text-center md:text-left">
+                            <span class="text-luxury-gold text-xs font-semibold uppercase tracking-widest mb-3 block">03 / Culture & Coast</span>
+                            <h3 class="text-3xl lg:text-4xl font-serif text-luxury-navy mb-6">The Grand Anchorage Tour</h3>
+                            <p class="font-sans text-luxury-navy/70 mb-8 font-light leading-relaxed">
+                                Experience the finest highlights of Alaska's largest city. From indigenous art and history to dramatic coastal viewpoints, this refined tour offers a relaxed yet immersive cultural introduction.
+                            </p>
+                            <button class="btn-navy border border-luxury-navy text-luxury-navy px-8 py-3 uppercase tracking-widest text-xs font-semibold open-chat-trigger">
+                                Inquire Availability
+                            </button>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Overland Transfers: Sleek & Clean -->
+        <section id="transfers" class="py-32 bg-luxury-navy text-luxury-white relative overflow-hidden">
+            <div class="absolute right-0 top-0 w-1/3 h-full bg-luxury-dark opacity-50 transform -skew-x-12 translate-x-16"></div>
+            
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <header class="flex flex-col md:flex-row justify-between items-end mb-20 reveal-up">
+                    <div>
+                        <span class="text-luxury-gold font-semibold tracking-[0.2em] text-xs uppercase mb-4 block">Seamless Logistics</span>
+                        <h2 class="text-4xl md:text-5xl font-serif text-luxury-white">Chauffeur & Transfers</h2>
+                    </div>
+                    <p class="font-sans text-luxury-white/70 max-w-sm mt-6 md:mt-0 font-light leading-relaxed">
+                        Begin and end your voyage with uncompromising comfort. Private, elegant transportation between Anchorage, Seward, and Whittier.
+                    </p>
+                </header>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                    <!-- Route List -->
+                    <div class="lg:col-span-7 space-y-6 reveal-left">
+                        <div class="bg-luxury-pure/5 border border-luxury-pure/10 p-8 flex justify-between items-center group hover:bg-luxury-pure/10 transition-colors cursor-pointer open-chat-trigger backdrop-blur-sm">
+                            <div>
+                                <h4 class="font-serif text-2xl text-luxury-white mb-2 flex items-center">
+                                    Seward <i class="fa-solid fa-arrow-right-long text-luxury-gold mx-4 text-sm"></i> Anchorage
+                                </h4>
+                                <p class="font-sans font-light text-luxury-white/60 text-sm">Direct port-to-hotel luxury conveyance.</p>
+                            </div>
+                            <div class="w-12 h-12 border border-luxury-gold/50 rounded-full flex items-center justify-center text-luxury-gold group-hover:bg-luxury-gold group-hover:text-luxury-navy transition-colors">
+                                <i class="fa-solid fa-angle-right"></i>
+                            </div>
+                        </div>
+                        <div class="bg-luxury-pure/5 border border-luxury-pure/10 p-8 flex justify-between items-center group hover:bg-luxury-pure/10 transition-colors cursor-pointer open-chat-trigger backdrop-blur-sm">
+                            <div>
+                                <h4 class="font-serif text-2xl text-luxury-white mb-2 flex items-center">
+                                    Whittier <i class="fa-solid fa-arrow-right-long text-luxury-gold mx-4 text-sm"></i> Anchorage
+                                </h4>
+                                <p class="font-sans font-light text-luxury-white/60 text-sm">Scenic mountain pass private transfer.</p>
+                            </div>
+                            <div class="w-12 h-12 border border-luxury-gold/50 rounded-full flex items-center justify-center text-luxury-gold group-hover:bg-luxury-gold group-hover:text-luxury-navy transition-colors">
+                                <i class="fa-solid fa-angle-right"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Fleet Grid -->
+                    <div class="lg:col-span-5 grid grid-cols-2 gap-4 reveal-right">
+                        <div class="bg-luxury-dark/80 border border-luxury-white/5 p-6 flex flex-col items-center justify-center text-center hover:border-luxury-gold transition-colors group">
+                            <i class="fa-solid fa-car-side text-3xl mb-4 text-luxury-gold group-hover:scale-110 transition-transform"></i>
+                            <h5 class="font-sans font-semibold uppercase tracking-widest text-xs mb-2">Premium SUV</h5>
+                            <p class="font-serif text-sm text-luxury-white/50 italic">2-3 Guests</p>
+                        </div>
+                        <div class="bg-luxury-dark/80 border border-luxury-white/5 p-6 flex flex-col items-center justify-center text-center hover:border-luxury-gold transition-colors group">
+                            <i class="fa-solid fa-truck-monster text-3xl mb-4 text-luxury-gold group-hover:scale-110 transition-transform"></i>
+                            <h5 class="font-sans font-semibold uppercase tracking-widest text-xs mb-2">Large SUV</h5>
+                            <p class="font-serif text-sm text-luxury-white/50 italic">Up to 6 Guests</p>
+                        </div>
+                        <div class="bg-luxury-dark/80 border border-luxury-white/5 p-6 flex flex-col items-center justify-center text-center hover:border-luxury-gold transition-colors group">
+                            <i class="fa-solid fa-van-shuttle text-3xl mb-4 text-luxury-gold group-hover:scale-110 transition-transform"></i>
+                            <h5 class="font-sans font-semibold uppercase tracking-widest text-xs mb-2">Executive Van</h5>
+                            <p class="font-serif text-sm text-luxury-white/50 italic">Up to 15 Guests</p>
+                        </div>
+                        <div class="bg-luxury-dark/80 border border-luxury-white/5 p-6 flex flex-col items-center justify-center text-center hover:border-luxury-gold transition-colors group">
+                            <i class="fa-solid fa-bus text-3xl mb-4 text-luxury-gold group-hover:scale-110 transition-transform"></i>
+                            <h5 class="font-sans font-semibold uppercase tracking-widest text-xs mb-2">Motor Coach</h5>
+                            <p class="font-serif text-sm text-luxury-white/50 italic">Group Charters</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Multi-Day Packages: Elegant Portrait Cards -->
+        <section id="packages" class="py-32 bg-luxury-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <header class="text-center mb-24 reveal-up">
+                    <span class="text-luxury-gold font-semibold tracking-[0.2em] text-xs uppercase mb-4 block">The Grand Collection</span>
+                    <h2 class="text-4xl md:text-5xl font-serif text-luxury-navy mb-6">Guarantee Departure Journeys</h2>
+                    <div class="w-16 h-[1px] bg-luxury-gold mx-auto mt-6 mb-6"></div>
+                    <p class="font-sans font-light text-luxury-navy/60 max-w-2xl mx-auto leading-relaxed">
+                        Meticulously planned, multi-day luxury itineraries. Let us handle every detail while you immerse yourself in the grandeur of Alaska.
+                    </p>
+                </header>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Journey 1 -->
+                    <article class="bg-luxury-pure shadow-soft hover:shadow-premium transition-all duration-500 reveal-up group flex flex-col h-full border border-transparent hover:border-luxury-gold/30">
+                        <div class="img-wrap h-[350px]">
+                            <img src="https://picsum.photos/id/1043/800/1000" alt="Alaska Explorer" class="w-full h-full object-cover img-zoom" crossorigin="anonymous">
+                            <div class="absolute top-6 left-6 bg-luxury-pure text-luxury-navy font-semibold text-[10px] px-4 py-2 uppercase tracking-widest shadow-sm">6 Days / 5 Nights</div>
+                        </div>
+                        <div class="p-10 flex flex-col flex-grow text-center">
+                            <h4 class="text-2xl font-serif text-luxury-navy mb-4">The Explorer</h4>
+                            <p class="font-sans font-light text-luxury-navy/60 text-sm mb-8 flex-grow leading-relaxed">An elegant introduction to Southcentral Alaska, encompassing pristine glaciers and premium wildlife viewing areas.</p>
+                            <button class="text-luxury-gold font-semibold uppercase tracking-widest text-xs border-b border-luxury-gold pb-1 hover:text-luxury-navy hover:border-luxury-navy transition-colors self-center open-chat-trigger">Request Itinerary</button>
+                        </div>
+                    </article>
+
+                    <!-- Journey 2 -->
+                    <article class="bg-luxury-navy shadow-soft hover:shadow-premium transition-all duration-500 reveal-up delay-100 group flex flex-col h-full transform md:-translate-y-8">
+                        <div class="img-wrap h-[350px] relative">
+                            <div class="absolute inset-0 bg-luxury-navy/20 z-10 pointer-events-none group-hover:bg-transparent transition-colors"></div>
+                            <img src="https://picsum.photos/id/1044/800/1000" alt="National Parks" class="w-full h-full object-cover img-zoom" crossorigin="anonymous">
+                            <div class="absolute top-6 left-6 bg-luxury-gold text-luxury-pure font-semibold text-[10px] px-4 py-2 uppercase tracking-widest shadow-sm z-20">8 Days / 7 Nights</div>
+                            <div class="absolute top-6 right-6 text-luxury-gold z-20 text-xl"><i class="fa-solid fa-star"></i></div>
+                        </div>
+                        <div class="p-10 flex flex-col flex-grow text-center border border-t-0 border-luxury-navy group-hover:border-luxury-gold/50 transition-colors">
+                            <h4 class="text-2xl font-serif text-luxury-white mb-4">National Parks Prestige</h4>
+                            <p class="font-sans font-light text-luxury-white/60 text-sm mb-8 flex-grow leading-relaxed">Deep, luxurious exploration into Denali and Kenai Fjords. The ultimate itinerary for the discerning traveler.</p>
+                            <button class="btn-navy bg-luxury-gold border border-luxury-gold text-luxury-navy px-8 py-3 uppercase tracking-widest text-xs font-semibold self-center open-chat-trigger">Request Itinerary</button>
+                        </div>
+                    </article>
+
+                    <!-- Journey 3 -->
+                    <article class="bg-luxury-pure shadow-soft hover:shadow-premium transition-all duration-500 reveal-up delay-200 group flex flex-col h-full border border-transparent hover:border-luxury-gold/30">
+                        <div class="img-wrap h-[350px]">
+                            <img src="https://picsum.photos/id/1050/800/1000" alt="Grand Alaska" class="w-full h-full object-cover img-zoom" crossorigin="anonymous">
+                            <div class="absolute top-6 left-6 bg-luxury-pure text-luxury-navy font-semibold text-[10px] px-4 py-2 uppercase tracking-widest shadow-sm">8 Days / 7 Nights</div>
+                        </div>
+                        <div class="p-10 flex flex-col flex-grow text-center">
+                            <h4 class="text-2xl font-serif text-luxury-navy mb-4">The Grand Traverse</h4>
+                            <p class="font-sans font-light text-luxury-navy/60 text-sm mb-8 flex-grow leading-relaxed">A sweeping luxury expedition featuring premium rail passage, private sea vessels, and the finest remote lodges.</p>
+                            <button class="text-luxury-gold font-semibold uppercase tracking-widest text-xs border-b border-luxury-gold pb-1 hover:text-luxury-navy hover:border-luxury-navy transition-colors self-center open-chat-trigger">Request Itinerary</button>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Themed Chatbot: "Luxury Concierge" -->
+    <div id="chat-container" class="fixed bottom-6 right-6 z-[100] flex flex-col items-end">
+        <!-- Chat Window -->
+        <div id="chat-window" class="chat-window hidden-chat bg-luxury-pure w-80 sm:w-96 shadow-premium mb-4 overflow-hidden flex flex-col h-[500px] border border-luxury-gold/20 rounded-lg">
+            <!-- Header -->
+            <div class="bg-luxury-navy p-5 flex items-center justify-between text-luxury-white">
+                <div class="flex items-center space-x-4">
+                    <div class="w-10 h-10 rounded-full border border-luxury-gold flex items-center justify-center text-luxury-gold bg-luxury-dark">
+                        <i class="fa-solid fa-concierge-bell text-sm"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-serif font-semibold tracking-wide text-base leading-tight text-luxury-gold">Digital Concierge</h4>
+                        <p class="font-sans font-light text-[10px] text-luxury-white/60 flex items-center mt-1"><span class="w-2 h-2 bg-green-400 mr-2 rounded-full inline-block"></span> Online to assist you</p>
+                    </div>
+                </div>
+                <button id="close-chat" class="text-luxury-white/50 hover:text-luxury-gold transition-colors"><i class="fa-solid fa-xmark text-xl"></i></button>
+            </div>
+            
+            <!-- Messages Area -->
+            <div class="flex-grow bg-luxury-white p-5 overflow-y-auto space-y-5" id="chat-messages">
+                <div class="flex items-start max-w-[85%]">
+                    <div class="w-8 h-8 rounded-full bg-luxury-navy flex-shrink-0 flex items-center justify-center mr-3 mt-1 text-luxury-gold border border-luxury-gold/50">
+                        <i class="fa-solid fa-concierge-bell text-xs"></i>
+                    </div>
+                    <div class="bg-luxury-pure p-4 font-sans font-light text-sm text-luxury-navy shadow-sm border border-luxury-gold/10 rounded-tr-xl rounded-b-xl leading-relaxed">
+                        Welcome to Alaska Travel Services. I am your personal digital concierge. Would you care to view pricing, arrange a transfer, or speak with an agent?
+                    </div>
+                </div>
+                
+                <!-- Quick Options -->
+                <div class="flex flex-col gap-2 ml-11">
+                    <button class="bg-luxury-pure text-luxury-navy text-left font-sans font-medium text-[11px] uppercase tracking-widest px-4 py-3 hover:bg-luxury-navy hover:text-luxury-gold transition-colors border border-luxury-gold/30 shadow-sm chat-option">View Tour Pricing</button>
+                    <button class="bg-luxury-pure text-luxury-navy text-left font-sans font-medium text-[11px] uppercase tracking-widest px-4 py-3 hover:bg-luxury-navy hover:text-luxury-gold transition-colors border border-luxury-gold/30 shadow-sm chat-option">Arrange a Transfer</button>
+                    <button class="bg-luxury-whatsapp text-luxury-pure text-left font-sans font-medium text-[11px] uppercase tracking-widest px-4 py-3 hover:bg-luxury-navy hover:text-luxury-gold transition-colors shadow-sm chat-option flex items-center"><i class="fa-brands fa-whatsapp mr-2 text-lg"></i> Transition to WhatsApp</button>
+                </div>
+            </div>
+            
+            <!-- Input Area -->
+            <div class="p-4 bg-luxury-pure border-t border-luxury-gold/20 flex items-center gap-3">
+                <input type="text" placeholder="Type your inquiry..." class="flex-grow bg-luxury-white px-5 py-3 font-sans font-light text-sm text-luxury-navy placeholder-luxury-navy/40 outline-none border border-luxury-navy/10 focus:border-luxury-gold transition-colors" id="chat-input">
+                <button class="w-12 h-12 bg-luxury-navy text-luxury-gold flex items-center justify-center hover:bg-luxury-gold hover:text-luxury-navy transition-colors flex-shrink-0">
+                    <i class="fa-solid fa-paper-plane text-sm"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Chat Trigger Button -->
+        <button id="chat-toggle-btn" class="w-16 h-16 rounded-full bg-luxury-navy text-luxury-gold border border-luxury-gold flex items-center justify-center text-2xl shadow-premium hover:bg-luxury-gold hover:text-luxury-navy transition-all duration-300 group relative">
+            <i class="fa-solid fa-concierge-bell"></i>
+            <!-- Notification Dot -->
+            <span class="absolute top-0 right-0 w-4 h-4 bg-red-500 border-2 border-luxury-pure rounded-full animate-pulse"></span>
+            
+            <!-- Hover Tooltip -->
+            <span class="absolute -top-12 right-0 bg-luxury-pure text-luxury-navy border border-luxury-gold/30 font-sans font-semibold text-[10px] uppercase tracking-widest px-4 py-2 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none shadow-sm rounded">Concierge Services</span>
+        </button>
+    </div>
+
+    <!-- Elegant Footer -->
+    <footer id="contact" class="bg-luxury-navy text-luxury-white pt-24 pb-12 border-t border-luxury-gold/50 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
+                
+                <!-- Brand & Mission -->
+                <div class="col-span-1 md:col-span-12 lg:col-span-5">
+                    <span class="font-sans font-light uppercase text-2xl tracking-[0.2em] text-luxury-white block mb-6">
+                        Alaska<span class="font-serif font-bold text-luxury-gold italic normal-case tracking-normal ml-1">Travel</span>
+                    </span>
+                    <p class="font-sans font-light text-luxury-white/60 mb-8 max-w-sm leading-relaxed text-sm">
+                        Dedicated to curating the most elegant and awe-inspiring Alaskan experiences. From private chauffeur transfers to grand luxury expeditions.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" aria-label="Messenger" class="w-10 h-10 border border-luxury-white/20 rounded-full flex items-center justify-center hover:bg-luxury-messenger hover:border-luxury-messenger hover:text-white transition-all"><i class="fa-brands fa-facebook-messenger"></i></a>
+                        <a href="#" aria-label="Instagram" class="w-10 h-10 border border-luxury-white/20 rounded-full flex items-center justify-center hover:bg-pink-600 hover:border-pink-600 hover:text-white transition-all"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" aria-label="WhatsApp" class="w-10 h-10 border border-luxury-white/20 rounded-full flex items-center justify-center hover:bg-luxury-whatsapp hover:border-luxury-whatsapp hover:text-white transition-all"><i class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                </div>
+
+                <!-- Contact Information -->
+                <div class="col-span-1 md:col-span-6 lg:col-span-4">
+                    <h4 class="text-luxury-gold font-semibold tracking-[0.2em] text-xs uppercase mb-8">Direct Contact</h4>
+                    <ul class="space-y-6 font-sans font-light">
+                        <li class="flex items-start group">
+                            <i class="fa-solid fa-phone text-luxury-gold mt-1 w-6"></i>
+                            <div>
+                                <p class="text-[10px] text-luxury-white/40 font-semibold uppercase tracking-widest mb-1">Reservations</p>
+                                <a href="tel:9074402646" class="text-lg font-serif italic hover:text-luxury-gold transition-colors">(907) 440-2646</a>
+                            </div>
+                        </li>
+                        <li class="flex items-start group">
+                            <i class="fa-solid fa-envelope text-luxury-gold mt-1 w-6"></i>
+                            <div>
+                                <p class="text-[10px] text-luxury-white/40 font-semibold uppercase tracking-widest mb-1">Inquiries</p>
+                                <a href="mailto:sales@alaskatravelservices.net" class="text-sm hover:text-luxury-gold transition-colors">sales@alaskatravelservices.net</a>
+                            </div>
+                        </li>
+                        <li class="flex items-start group">
+                            <i class="fa-solid fa-location-dot text-luxury-gold mt-1 w-6"></i>
+                            <div>
+                                <p class="text-[10px] text-luxury-white/40 font-semibold uppercase tracking-widest mb-1">Headquarters</p>
+                                <p class="text-sm text-luxury-white/80 leading-relaxed">P.O. Box 211089<br>Anchorage, AK 99521 USA</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Quick Navigation -->
+                <div class="col-span-1 md:col-span-6 lg:col-span-3">
+                    <h4 class="text-luxury-gold font-semibold tracking-[0.2em] text-xs uppercase mb-8">Directory</h4>
+                    <ul class="space-y-4 font-sans font-light text-sm text-luxury-white/70">
+                        <li><a href="#automation" class="hover:text-luxury-gold transition-colors flex items-center"><span class="w-2 h-[1px] bg-luxury-gold mr-3"></span> Concierge</a></li>
+                        <li><a href="#activities" class="hover:text-luxury-gold transition-colors flex items-center"><span class="w-2 h-[1px] bg-luxury-gold mr-3"></span> Experiences</a></li>
+                        <li><a href="#transfers" class="hover:text-luxury-gold transition-colors flex items-center"><span class="w-2 h-[1px] bg-luxury-gold mr-3"></span> Chauffeur</a></li>
+                        <li><a href="#packages" class="hover:text-luxury-gold transition-colors flex items-center"><span class="w-2 h-[1px] bg-luxury-gold mr-3"></span> Journeys</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-luxury-white/10 pt-8 flex flex-col md:flex-row justify-between items-center font-sans text-[10px] text-luxury-white/40 uppercase tracking-[0.2em]">
+                <p>&copy; 2026 Alaska Travel Services.</p>
+                <div class="mt-4 md:mt-0 space-x-6 flex">
+                    <a href="#" class="hover:text-luxury-gold transition-colors">Privacy Policy</a>
+                    <a href="#" class="hover:text-luxury-gold transition-colors">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts for Premium Interactivity & Webchat Logic -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // 1. Scroll Progress Bar
+            const progressBar = document.getElementById('scroll-progress');
+            window.addEventListener('scroll', () => {
+                const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+                const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const scrolled = (winScroll / height) * 100;
+                progressBar.style.width = scrolled + "%";
+            });
+
+            // 2. Elegant Navigation Effect
+            const navbar = document.getElementById('navbar');
+            
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('py-4', 'header-scrolled');
+                    navbar.classList.remove('py-6', 'border-transparent');
+                } else {
+                    navbar.classList.remove('py-4', 'header-scrolled');
+                    navbar.classList.add('py-6', 'border-transparent');
+                }
+            });
+
+            // 3. Mobile Menu Handling
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const closeMenuBtn = document.getElementById('close-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileLinks = document.querySelectorAll('.mobile-link');
+            
+            function toggleMenu() {
+                if (mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.remove('hidden');
+                    setTimeout(() => mobileMenu.classList.remove('opacity-0'), 10);
+                    document.body.style.overflow = 'hidden';
+                } else {
+                    mobileMenu.classList.add('opacity-0');
+                    setTimeout(() => {
+                        mobileMenu.classList.add('hidden');
+                        document.body.style.overflow = '';
+                    }, 500);
+                }
+            }
+
+            mobileMenuBtn.addEventListener('click', toggleMenu);
+            closeMenuBtn.addEventListener('click', toggleMenu);
+            mobileLinks.forEach(link => link.addEventListener('click', toggleMenu));
+
+            // 4. Scroll Reveals
+            const revealElements = document.querySelectorAll('.reveal-up, .reveal-left, .reveal-right');
+            const revealOptions = { threshold: 0.15, rootMargin: "0px 0px -50px 0px" };
+
+            const revealOnScroll = new IntersectionObserver(function(entries, observer) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, revealOptions);
+
+            revealElements.forEach(el => revealOnScroll.observe(el));
+
+            // 5. Concierge Webchat Logic
+            const chatToggleBtn = document.getElementById('chat-toggle-btn');
+            const chatWindow = document.getElementById('chat-window');
+            const closeChat = document.getElementById('close-chat');
+            const chatOptions = document.querySelectorAll('.chat-option');
+            const chatMessages = document.getElementById('chat-messages');
+            const chatTriggers = document.querySelectorAll('.open-chat-trigger');
+
+            // Open/Close chat
+            function toggleChat() {
+                chatWindow.classList.toggle('hidden-chat');
+                // Remove notification dot when opened
+                const notifDot = chatToggleBtn.querySelector('.animate-pulse');
+                if(notifDot && !chatWindow.classList.contains('hidden-chat')) {
+                    notifDot.style.display = 'none';
+                }
+            }
+
+            chatToggleBtn.addEventListener('click', toggleChat);
+            closeChat.addEventListener('click', toggleChat);
+
+            // Trigger chat from page buttons
+            chatTriggers.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    if(chatWindow.classList.contains('hidden-chat')) {
+                        toggleChat();
+                    }
+                    // Simulate bot responding to specific context
+                    appendUserMessage("I would like to inquire about pricing and availability.");
+                    setTimeout(() => {
+                        appendBotMessage("Certainly. It would be my pleasure to assist you. May I ask what month you are planning your journey?");
+                    }, 1000);
+                });
+            });
+
+            // Simulate Chat Options clicking
+            chatOptions.forEach(opt => {
+                opt.addEventListener('click', (e) => {
+                    const text = e.target.innerText;
+                    appendUserMessage(text);
+                    e.target.parentElement.style.display = 'none'; // hide options after clicking
+                    
+                    setTimeout(() => {
+                        if(text.includes('WhatsApp')) {
+                            appendBotMessage('Of course. I am seamlessly transferring you to our secure WhatsApp channel now: <br><br><a href="https://wa.me/19074402646" target="_blank" class="bg-luxury-navy text-luxury-gold px-5 py-3 rounded-sm inline-block mt-3 font-sans font-semibold text-[10px] uppercase tracking-widest hover:bg-luxury-gold hover:text-luxury-navy transition-colors"><i class="fa-brands fa-whatsapp mr-2"></i> Open WhatsApp</a>');
+                        } else {
+                            appendBotMessage("Excellent choice. May I have the approximate number of guests in your party to provide an accurate quote?");
+                        }
+                    }, 800);
+                });
+            });
+
+            function appendUserMessage(text) {
+                const msgHTML = `
+                <div class="flex items-start justify-end max-w-[85%] ml-auto mt-5">
+                    <div class="bg-luxury-navy p-4 font-sans font-light text-sm text-luxury-white rounded-tl-xl rounded-b-xl shadow-sm leading-relaxed">
+                        ${text}
+                    </div>
+                </div>`;
+                chatMessages.insertAdjacentHTML('beforeend', msgHTML);
+                scrollToBottom();
+            }
+
+            function appendBotMessage(text) {
+                const msgHTML = `
+                <div class="flex items-start max-w-[85%] mt-5">
+                    <div class="w-8 h-8 rounded-full bg-luxury-navy flex-shrink-0 flex items-center justify-center mr-3 mt-1 text-luxury-gold border border-luxury-gold/50">
+                        <i class="fa-solid fa-concierge-bell text-xs"></i>
+                    </div>
+                    <div class="bg-luxury-pure p-4 font-sans font-light text-sm text-luxury-navy shadow-sm border border-luxury-gold/10 rounded-tr-xl rounded-b-xl leading-relaxed">
+                        ${text}
+                    </div>
+                </div>`;
+                chatMessages.insertAdjacentHTML('beforeend', msgHTML);
+                scrollToBottom();
+            }
+
+            function scrollToBottom() {
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+        });
+    </script>
+</body>
+</html>

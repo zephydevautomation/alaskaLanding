@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Experience the ultimate Alaska dream vacation. Book guided wildlife tours, glacier walks, multi-day guarantee departure tours, and premium cruise transfers with Alaska Travel Services.">
+    <meta name="keywords" content="Alaska travel, Alaska tours, Anchorage tours, glacier walk, bear viewing, Alaska cruise transfers, Denali tours">
+    <meta name="author" content="Alaska Travel Services">
+    
+    <title>Alaska Travel Services | Luxury Tours & Wilderness Vacations</title>
+    
+    <!-- Premium Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        premium: {
+                            navy: '#0B192C',     // Deep Fjord Night
+                            forest: '#1A3636',   // Pine Needle
+                            gold: '#C69C6D',     // Champagne Gold Accent
+                            sand: '#F5F5F0',     // Warm Light Gray/Sand
+                            white: '#FFFFFF'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        serif: ['"Cormorant Garamond"', 'serif'],
+                    },
+                    boxShadow: {
+                        'luxury': '0 20px 40px -15px rgba(0,0,0,0.05)',
+                        'gold-glow': '0 0 20px rgba(198, 156, 109, 0.4)'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Base Styling & Scrollbar */
+        body { background-color: #F5F5F0; }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #F5F5F0; }
+        ::-webkit-scrollbar-thumb { background: #C69C6D; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #0B192C; }
+
+        /* Scroll Progress Bar */
+        #scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 3px;
+            background: #C69C6D;
+            z-index: 1000;
+            transition: width 0.1s;
+        }
+
+        /* Advanced Reveal Animations */
+        .reveal-up { opacity: 0; transform: translateY(50px); transition: all 1s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal-left { opacity: 0; transform: translateX(-50px); transition: all 1s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal-right { opacity: 0; transform: translateX(50px); transition: all 1s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal-up.active, .reveal-left.active, .reveal-right.active { opacity: 1; transform: translate(0, 0); }
+        
+        /* Staggered Delays */
+        .delay-100 { transition-delay: 100ms; }
+        .delay-200 { transition-delay: 200ms; }
+        .delay-300 { transition-delay: 300ms; }
+
+        /* Image Effects */
+        .img-zoom-container { overflow: hidden; position: relative; }
+        .img-zoom { transition: transform 1.5s cubic-bezier(0.16, 1, 0.3, 1); }
+        .img-zoom-container:hover .img-zoom { transform: scale(1.05); }
+        
+        /* Ken Burns Hero Effect */
+        @keyframes kenBurns {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.15); }
+        }
+        .hero-pan { animation: kenBurns 25s ease-in-out infinite alternate; }
+
+        /* Glass Header */
+        .header-glass {
+            background: rgba(11, 25, 44, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        /* Interactive Card Overlay */
+        .card-overlay {
+            background: linear-gradient(to top, rgba(11, 25, 44, 0.95) 0%, rgba(11, 25, 44, 0.4) 50%, transparent 100%);
+            opacity: 0.8;
+            transition: opacity 0.5s ease;
+        }
+        .img-zoom-container:hover .card-overlay { opacity: 1; }
+        
+        /* Custom Button Hover */
+        .btn-gold {
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        .btn-gold::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 0%;
+            background-color: #0B192C;
+            transition: all 0.3s ease;
+            z-index: -1;
+        }
+        .btn-gold:hover::after { height: 100%; }
+        .btn-gold:hover { color: #FFFFFF; border-color: #0B192C; }
+    </style>
+</head>
+<body class="font-sans text-premium-forest antialiased overflow-x-hidden">
+
+    <!-- Scroll Progress -->
+    <div id="scroll-progress"></div>
+
+    <!-- Header Navigation -->
+    <header id="navbar" class="fixed w-full z-50 transition-all duration-500 py-6 top-0">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <nav class="flex justify-between items-center" aria-label="Main Navigation">
+                
+                <!-- Logo -->
+                <a href="#" class="flex-shrink-0 flex items-center z-50 group">
+                    <span class="font-serif font-bold text-2xl md:text-3xl text-white tracking-wide transition-colors group-hover:text-premium-gold nav-text">
+                        Alaska<span class="font-light italic text-premium-gold">Travel</span>
+                    </span>
+                </a>
+
+                <!-- Desktop Menu -->
+                <div class="hidden lg:flex space-x-8 items-center bg-white/5 backdrop-blur-md px-8 py-3 rounded-full border border-white/10 nav-pill transition-all">
+                    <a href="#activities" class="text-white hover:text-premium-gold font-medium text-xs uppercase tracking-widest transition-colors nav-link">Activities</a>
+                    <a href="#transfers" class="text-white hover:text-premium-gold font-medium text-xs uppercase tracking-widest transition-colors nav-link">Transfers</a>
+                    <a href="#packages" class="text-white hover:text-premium-gold font-medium text-xs uppercase tracking-widest transition-colors nav-link">Tours</a>
+                </div>
+
+                <!-- CTA & Mobile Toggle -->
+                <div class="flex items-center space-x-4 z-50">
+                    <a href="#contact" class="hidden md:inline-flex bg-premium-gold text-premium-navy px-6 py-2.5 rounded-none font-bold text-xs uppercase tracking-widest hover:bg-white hover:shadow-gold-glow transition-all duration-300">
+                        Plan Journey
+                    </a>
+                    <button id="mobile-menu-btn" class="lg:hidden text-white hover:text-premium-gold focus:outline-none nav-text p-2" aria-label="Toggle menu">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </nav>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="fixed inset-0 bg-premium-navy/98 backdrop-blur-xl z-40 hidden opacity-0 transition-opacity duration-300 flex flex-col justify-center items-center">
+            <button id="close-menu-btn" class="absolute top-8 right-8 text-white text-3xl hover:text-premium-gold transition-colors"><i class="fa-solid fa-xmark"></i></button>
+            <div class="flex flex-col text-center space-y-8 w-full px-6">
+                <a href="#activities" class="mobile-link text-3xl font-serif text-white hover:text-premium-gold transition-colors">Summer Activities</a>
+                <a href="#transfers" class="mobile-link text-3xl font-serif text-white hover:text-premium-gold transition-colors">Cruise Transfers</a>
+                <a href="#packages" class="mobile-link text-3xl font-serif text-white hover:text-premium-gold transition-colors">Guarantee Departures</a>
+                <a href="#contact" class="mobile-link text-3xl font-serif text-premium-gold mt-8">Contact Us</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="relative h-screen min-h-[700px] flex items-center justify-center overflow-hidden bg-premium-navy">
+            <!-- Background with Ken Burns Pan -->
+            <div class="absolute inset-0 z-0">
+                <img src="https://picsum.photos/id/1015/1920/1080" alt="Majestic Alaskan Mountain Range" class="w-full h-full object-cover object-center hero-pan transform scale-105" crossorigin="anonymous" />
+                <div class="absolute inset-0 bg-gradient-to-b from-premium-navy/80 via-premium-navy/40 to-premium-navy/90"></div>
+            </div>
+
+            <!-- Content -->
+            <div class="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-20">
+                <p class="text-premium-gold font-bold tracking-[0.3em] text-xs uppercase mb-6 reveal-up">Established Excellence in Alaskan Travel</p>
+                <h1 class="text-5xl md:text-7xl lg:text-8xl font-serif text-white mb-8 leading-[1.1] reveal-up delay-100 drop-shadow-2xl">
+                    Beyond the Edge <br><span class="italic font-light text-premium-sand">of the World</span>
+                </h1>
+                <p class="text-lg md:text-xl text-premium-sand/80 mb-12 font-light max-w-2xl mx-auto reveal-up delay-200">
+                    Curated wilderness safaris, exclusive glacier encounters, and seamless journeys across the Great Land.
+                </p>
+                
+                <div class="reveal-up delay-300">
+                    <a href="#activities" class="inline-flex items-center justify-center border border-premium-gold text-premium-gold hover:bg-premium-gold hover:text-premium-navy px-8 py-4 uppercase tracking-widest text-xs font-bold transition-all duration-500">
+                        Discover Experiences
+                    </a>
+                </div>
+            </div>
+
+            <!-- Scroll Indicator -->
+            <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-10 flex flex-col items-center reveal-up delay-300">
+                <span class="text-white/50 uppercase tracking-widest text-[10px] mb-3">Scroll to Explore</span>
+                <div class="w-[1px] h-16 bg-gradient-to-b from-white/50 to-transparent"></div>
+            </div>
+        </section>
+
+        <!-- Activities Section (Magazine Grid Layout) -->
+        <section id="activities" class="py-32 bg-premium-sand relative">
+            <!-- Decorative Elements -->
+            <div class="absolute top-0 left-0 w-64 h-64 bg-premium-gold/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
+            
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <header class="flex flex-col md:flex-row justify-between items-end mb-20 reveal-up">
+                    <div class="max-w-2xl">
+                        <h2 class="text-premium-gold font-bold tracking-[0.2em] text-xs uppercase mb-4">Summer Expeditions</h2>
+                        <h3 class="text-4xl md:text-5xl lg:text-6xl font-serif text-premium-navy leading-tight">Authentic Encounters <br><span class="italic text-premium-forest">in the Wild</span></h3>
+                    </div>
+                    <p class="text-premium-forest/70 max-w-md mt-6 md:mt-0 font-light border-l border-premium-gold pl-6">
+                        Enjoy 10% off early summer bookings. Experience our highly sought-after adventures departing directly from Anchorage.
+                    </p>
+                </header>
+
+                <!-- Asymmetrical CSS Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+                    
+                    <!-- Featured Large Item (Spans 8 cols on desktop) -->
+                    <article class="md:col-span-8 group img-zoom-container reveal-up bg-white overflow-hidden shadow-luxury">
+                        <div class="relative h-[60vh] min-h-[400px]">
+                            <img src="https://picsum.photos/id/1036/1200/800" alt="The Grand Tour of Anchorage Scenic View" class="w-full h-full object-cover img-zoom" crossorigin="anonymous">
+                            <div class="absolute inset-0 card-overlay"></div>
+                            
+                            <!-- Content positioned over image -->
+                            <div class="absolute bottom-0 left-0 p-8 md:p-12 w-full">
+                                <span class="bg-premium-gold text-premium-navy text-[10px] font-bold uppercase tracking-widest px-3 py-1 mb-4 inline-block">Signature Tour</span>
+                                <h4 class="text-3xl md:text-4xl font-serif text-white mb-3">The Grand Tour of Anchorage</h4>
+                                <p class="text-white/80 font-light max-w-md mb-6 hidden md:block">Immerse yourself in the rich history, indigenous culture, and breathtaking viewpoints of Alaska's largest city.</p>
+                                <a href="#contact" class="text-premium-gold text-xs uppercase tracking-widest font-bold flex items-center group/btn">
+                                    Reserve Experience <i class="fa-solid fa-arrow-right ml-2 transition-transform group-hover/btn:translate-x-2"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Smaller Item (Spans 4 cols) -->
+                    <article class="md:col-span-4 group img-zoom-container reveal-up delay-100 bg-white overflow-hidden shadow-luxury">
+                        <div class="relative h-[60vh] min-h-[400px]">
+                            <img src="https://picsum.photos/id/1020/600/800" alt="Alaskan Wildlife Bear Viewing" class="w-full h-full object-cover img-zoom" crossorigin="anonymous">
+                            <div class="absolute inset-0 card-overlay"></div>
+                            <div class="absolute bottom-0 left-0 p-8 w-full">
+                                <h4 class="text-2xl font-serif text-white mb-2">Bear Viewing Safari</h4>
+                                <p class="text-white/70 font-light text-sm mb-4">An unforgettable, safe viewing experience in natural habitats.</p>
+                                <a href="#contact" class="text-premium-gold text-[10px] uppercase tracking-widest font-bold border-b border-premium-gold pb-1 hover:text-white transition-colors">Discover More</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Medium Item (Spans 6 cols) -->
+                    <article class="md:col-span-6 group img-zoom-container reveal-up bg-white overflow-hidden shadow-luxury">
+                        <div class="relative h-[40vh] min-h-[300px]">
+                            <img src="https://picsum.photos/id/1018/800/600" alt="Glacier Walk Adventure" class="w-full h-full object-cover img-zoom" crossorigin="anonymous">
+                            <div class="absolute inset-0 card-overlay"></div>
+                            <div class="absolute bottom-0 left-0 p-8 w-full">
+                                <h4 class="text-2xl font-serif text-white mb-2">Glacier Walk Adventure</h4>
+                                <p class="text-white/70 font-light text-sm mb-4">Step onto ancient ice formations with expert safety guides.</p>
+                                <a href="#contact" class="text-premium-gold text-[10px] uppercase tracking-widest font-bold border-b border-premium-gold pb-1 hover:text-white transition-colors">Discover More</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Medium Item (Spans 6 cols) -->
+                    <article class="md:col-span-6 group img-zoom-container reveal-up delay-100 bg-white overflow-hidden shadow-luxury">
+                        <div class="relative h-[40vh] min-h-[300px]">
+                            <img src="https://picsum.photos/id/174/800/600" alt="Big Wildlife Tour Scenery" class="w-full h-full object-cover img-zoom" crossorigin="anonymous">
+                            <div class="absolute inset-0 card-overlay"></div>
+                            <div class="absolute bottom-0 left-0 p-8 w-full">
+                                <h4 class="text-2xl font-serif text-white mb-2">Big Wildlife Tour</h4>
+                                <p class="text-white/70 font-light text-sm mb-4">Journey from Anchorage to spot iconic animals in the wild.</p>
+                                <a href="#contact" class="text-premium-gold text-[10px] uppercase tracking-widest font-bold border-b border-premium-gold pb-1 hover:text-white transition-colors">Discover More</a>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Cruise Transfers Section (Sticky Layout for Premium UX) -->
+        <section id="transfers" class="py-32 bg-premium-navy text-white relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col lg:flex-row gap-16">
+                    
+                    <!-- Left: Sticky Content -->
+                    <div class="lg:w-1/3 lg:sticky lg:top-32 h-fit reveal-left">
+                        <h2 class="text-premium-gold font-bold tracking-[0.2em] text-xs uppercase mb-4">Port Connections</h2>
+                        <h3 class="text-4xl md:text-5xl font-serif mb-6 leading-tight">Seamless Cruise <br><span class="italic text-white/70">Transfers</span></h3>
+                        <p class="text-white/60 font-light mb-8 leading-relaxed">
+                            Start or end your voyage with elegance. We provide reliable, comfortable transportation between Anchorage, Seward, and Whittier with a diverse fleet tailored to your party size.
+                        </p>
+                        <a href="tel:9074402646" class="inline-flex items-center text-premium-gold uppercase tracking-widest text-xs font-bold hover:text-white transition-colors">
+                            <i class="fa-solid fa-phone mr-3"></i> Call to Arrange
+                        </a>
+                    </div>
+
+                    <!-- Right: Scrolling Content -->
+                    <div class="lg:w-2/3 space-y-16">
+                        
+                        <!-- Routes -->
+                        <div class="reveal-up">
+                            <h4 class="font-serif text-2xl mb-8 border-b border-white/10 pb-4">Popular Routes</h4>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div class="bg-white/5 p-6 border border-white/5 hover:border-premium-gold/50 transition-colors group">
+                                    <h5 class="font-bold text-lg mb-2 flex items-center justify-between">
+                                        Seward <i class="fa-solid fa-arrow-right-long text-premium-gold"></i> Anchorage
+                                    </h5>
+                                    <p class="text-white/50 text-sm font-light">Direct port to hotel or airport luxury transfer.</p>
+                                </div>
+                                <div class="bg-white/5 p-6 border border-white/5 hover:border-premium-gold/50 transition-colors group">
+                                    <h5 class="font-bold text-lg mb-2 flex items-center justify-between">
+                                        Whittier <i class="fa-solid fa-arrow-right-long text-premium-gold"></i> Anchorage
+                                    </h5>
+                                    <p class="text-white/50 text-sm font-light">Scenic highway journey through the mountains.</p>
+                                </div>
+                                <div class="bg-white/5 p-6 border border-white/5 hover:border-premium-gold/50 transition-colors group">
+                                    <h5 class="font-bold text-lg mb-2 flex items-center justify-between">
+                                        Anchorage <i class="fa-solid fa-arrow-right-long text-premium-gold"></i> Seward
+                                    </h5>
+                                    <p class="text-white/50 text-sm font-light">Relaxing pre-cruise transportation.</p>
+                                </div>
+                                <div class="bg-white/5 p-6 border border-white/5 hover:border-premium-gold/50 transition-colors group">
+                                    <h5 class="font-bold text-lg mb-2 flex items-center justify-between">
+                                        Anchorage <i class="fa-solid fa-arrow-right-long text-premium-gold"></i> Whittier
+                                    </h5>
+                                    <p class="text-white/50 text-sm font-light">Includes passage through the historic Anton Anderson Tunnel.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Fleet -->
+                        <div class="reveal-up delay-100">
+                            <h4 class="font-serif text-2xl mb-8 border-b border-white/10 pb-4">Our Fleet</h4>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <!-- Fleet Item -->
+                                <div class="flex items-start space-x-6 bg-premium-forest/30 p-6 rounded-sm">
+                                    <div class="text-premium-gold text-3xl mt-1"><i class="fa-solid fa-car-side"></i></div>
+                                    <div>
+                                        <h5 class="font-bold text-lg">Premium SUV</h5>
+                                        <p class="text-white/50 text-sm mb-3">2 to 3 passengers. Perfect for couples.</p>
+                                        <a href="#contact" class="text-premium-gold text-[10px] uppercase tracking-widest font-bold">Inquire</a>
+                                    </div>
+                                </div>
+                                <div class="flex items-start space-x-6 bg-premium-forest/30 p-6 rounded-sm">
+                                    <div class="text-premium-gold text-3xl mt-1"><i class="fa-solid fa-truck-monster"></i></div>
+                                    <div>
+                                        <h5 class="font-bold text-lg">Large SUV</h5>
+                                        <p class="text-white/50 text-sm mb-3">Up to 6 passengers. Ample luggage space.</p>
+                                        <a href="#contact" class="text-premium-gold text-[10px] uppercase tracking-widest font-bold">Inquire</a>
+                                    </div>
+                                </div>
+                                <div class="flex items-start space-x-6 bg-premium-forest/30 p-6 rounded-sm">
+                                    <div class="text-premium-gold text-3xl mt-1"><i class="fa-solid fa-van-shuttle"></i></div>
+                                    <div>
+                                        <h5 class="font-bold text-lg">Executive Van</h5>
+                                        <p class="text-white/50 text-sm mb-3">Up to 15 passengers. Ideal for families.</p>
+                                        <a href="#contact" class="text-premium-gold text-[10px] uppercase tracking-widest font-bold">Inquire</a>
+                                    </div>
+                                </div>
+                                <div class="flex items-start space-x-6 bg-premium-forest/30 p-6 rounded-sm">
+                                    <div class="text-premium-gold text-3xl mt-1"><i class="fa-solid fa-bus"></i></div>
+                                    <div>
+                                        <h5 class="font-bold text-lg">Motor Coach</h5>
+                                        <p class="text-white/50 text-sm mb-3">Up to 50 passengers. Corporate & groups.</p>
+                                        <a href="#contact" class="text-premium-gold text-[10px] uppercase tracking-widest font-bold">Inquire</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Multi-Day Tours Section (Premium Cards) -->
+        <section id="packages" class="py-32 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <header class="text-center mb-20 reveal-up">
+                    <h2 class="text-premium-gold font-bold tracking-[0.2em] text-xs uppercase mb-4">2024 / 2025 Collection</h2>
+                    <h3 class="text-4xl md:text-5xl lg:text-6xl font-serif text-premium-navy mb-6">Guarantee Departure Tours</h3>
+                    <p class="text-premium-forest/70 max-w-2xl mx-auto font-light">Expertly crafted multi-day itineraries ensuring you experience the true magnitude of Alaska without the stress of planning.</p>
+                </header>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                    
+                    <!-- Tour 1 -->
+                    <article class="flex flex-col bg-premium-sand rounded-none shadow-luxury reveal-up group">
+                        <div class="relative h-72 img-zoom-container overflow-hidden">
+                            <img src="https://picsum.photos/id/1043/800/600" alt="Alaska Explorer Scenic Landscape" class="w-full h-full object-cover img-zoom" crossorigin="anonymous">
+                            <div class="absolute top-4 left-4 bg-premium-navy text-white text-[10px] px-3 py-1 uppercase tracking-widest font-bold">6 Days / 5 Nights</div>
+                        </div>
+                        <div class="p-8 flex flex-col flex-grow bg-white border border-t-0 border-premium-sand">
+                            <h4 class="text-2xl font-serif text-premium-navy mb-3">Alaska Explorer</h4>
+                            <p class="text-premium-forest/70 font-light mb-8 flex-grow text-sm leading-relaxed">A perfect introductory journey covering the majestic highlights of Southcentral Alaska, including ancient glaciers and abundant wildlife habitats.</p>
+                            <a href="#contact" class="btn-gold border border-premium-gold text-premium-navy text-center py-3 text-xs uppercase tracking-widest font-bold">View Itinerary</a>
+                        </div>
+                    </article>
+
+                    <!-- Tour 2 (Featured) -->
+                    <article class="flex flex-col bg-premium-sand rounded-none shadow-luxury reveal-up delay-100 group relative transform md:-translate-y-4">
+                        <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-premium-gold text-premium-navy text-[10px] px-4 py-1 uppercase tracking-widest font-bold z-20 whitespace-nowrap shadow-md">Most Revered</div>
+                        <div class="relative h-72 img-zoom-container overflow-hidden">
+                            <img src="https://picsum.photos/id/1044/800/600" alt="Denali National Park Mountains" class="w-full h-full object-cover img-zoom" crossorigin="anonymous">
+                            <div class="absolute top-4 left-4 bg-premium-navy text-white text-[10px] px-3 py-1 uppercase tracking-widest font-bold z-10">8 Days / 7 Nights</div>
+                            <div class="absolute inset-0 border-4 border-premium-gold/30 z-10 pointer-events-none"></div>
+                        </div>
+                        <div class="p-8 flex flex-col flex-grow bg-white border border-t-0 border-premium-gold/30">
+                            <h4 class="text-2xl font-serif text-premium-navy mb-3">Alaska National Parks</h4>
+                            <p class="text-premium-forest/70 font-light mb-8 flex-grow text-sm leading-relaxed">Venture deep into Denali and Kenai Fjords. The ultimate itinerary for nature lovers and photography enthusiasts seeking untouched wilderness.</p>
+                            <a href="#contact" class="bg-premium-navy text-white border border-premium-navy hover:bg-premium-gold hover:border-premium-gold text-center py-3 text-xs uppercase tracking-widest font-bold transition-colors">View Itinerary</a>
+                        </div>
+                    </article>
+
+                    <!-- Tour 3 -->
+                    <article class="flex flex-col bg-premium-sand rounded-none shadow-luxury reveal-up delay-200 group">
+                        <div class="relative h-72 img-zoom-container overflow-hidden">
+                            <img src="https://picsum.photos/id/1050/800/600" alt="Grand Alaska Train Journey" class="w-full h-full object-cover img-zoom" crossorigin="anonymous">
+                            <div class="absolute top-4 left-4 bg-premium-navy text-white text-[10px] px-3 py-1 uppercase tracking-widest font-bold">8 Days / 7 Nights</div>
+                        </div>
+                        <div class="p-8 flex flex-col flex-grow bg-white border border-t-0 border-premium-sand">
+                            <h4 class="text-2xl font-serif text-premium-navy mb-3">Grand Alaska</h4>
+                            <p class="text-premium-forest/70 font-light mb-8 flex-grow text-sm leading-relaxed">An expansive, all-encompassing expedition across Alaska's vast landscapes, featuring premium train rides, exclusive cruises, and luxury lodges.</p>
+                            <a href="#contact" class="btn-gold border border-premium-gold text-premium-navy text-center py-3 text-xs uppercase tracking-widest font-bold">View Itinerary</a>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-premium-forest text-premium-sand pt-24 pb-12 border-t-[4px] border-premium-gold relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
+                
+                <!-- Brand & Mission -->
+                <div class="col-span-1 md:col-span-12 lg:col-span-5">
+                    <span class="font-serif font-bold text-3xl text-white tracking-wide block mb-6">
+                        Alaska<span class="font-light italic text-premium-gold">TravelServices</span>
+                    </span>
+                    <p class="text-premium-sand/60 mb-8 max-w-sm leading-relaxed font-light text-sm">
+                        Dedicated to providing you with a wonderful experience. From bespoke transfers to grand expeditions, we curate the essence of Alaska.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" aria-label="Facebook" class="w-10 h-10 border border-white/20 flex items-center justify-center rounded-full hover:bg-premium-gold hover:border-premium-gold transition-all text-white"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram" class="w-10 h-10 border border-white/20 flex items-center justify-center rounded-full hover:bg-premium-gold hover:border-premium-gold transition-all text-white"><i class="fa-brands fa-instagram"></i></a>
+                    </div>
+                </div>
+
+                <!-- Contact Information -->
+                <div class="col-span-1 md:col-span-6 lg:col-span-4">
+                    <h4 class="text-premium-gold font-bold tracking-[0.1em] text-xs uppercase mb-6">Connect With Us</h4>
+                    <ul class="space-y-6">
+                        <li class="flex items-start group">
+                            <i class="fa-solid fa-phone text-premium-gold mt-1 w-6"></i>
+                            <div>
+                                <p class="text-[10px] text-white/50 uppercase tracking-widest mb-1">Reservations & Inquiry</p>
+                                <a href="tel:9074402646" class="font-serif text-xl hover:text-premium-gold transition-colors">(907) 440-2646</a>
+                            </div>
+                        </li>
+                        <li class="flex items-start group">
+                            <i class="fa-solid fa-envelope text-premium-gold mt-1 w-6"></i>
+                            <div>
+                                <p class="text-[10px] text-white/50 uppercase tracking-widest mb-1">Email</p>
+                                <a href="mailto:sales@alaskatravelservices.net" class="text-sm font-light hover:text-premium-gold transition-colors">sales@alaskatravelservices.net</a>
+                            </div>
+                        </li>
+                        <li class="flex items-start group">
+                            <i class="fa-solid fa-location-dot text-premium-gold mt-1 w-6"></i>
+                            <div>
+                                <p class="text-[10px] text-white/50 uppercase tracking-widest mb-1">Mailing Address</p>
+                                <p class="text-sm font-light text-white/80">P.O. Box 211089<br>Anchorage, AK 99521 USA</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Quick Navigation -->
+                <div class="col-span-1 md:col-span-6 lg:col-span-3">
+                    <h4 class="text-premium-gold font-bold tracking-[0.1em] text-xs uppercase mb-6">Explore</h4>
+                    <ul class="space-y-3 font-light text-sm text-white/70">
+                        <li><a href="#" class="hover:text-premium-gold hover:translate-x-1 inline-block transition-transform">About Our Company</a></li>
+                        <li><a href="#activities" class="hover:text-premium-gold hover:translate-x-1 inline-block transition-transform">Summer Activities</a></li>
+                        <li><a href="#transfers" class="hover:text-premium-gold hover:translate-x-1 inline-block transition-transform">Cruise Transfers</a></li>
+                        <li><a href="#" class="hover:text-premium-gold hover:translate-x-1 inline-block transition-transform">Winter Packages</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-[10px] text-white/40 uppercase tracking-widest">
+                <p>&copy; 2026 Alaska Travel Services. All Rights Reserved.</p>
+                <div class="mt-4 md:mt-0 space-x-6">
+                    <a href="#" class="hover:text-premium-gold transition-colors">Privacy Policy</a>
+                    <a href="#" class="hover:text-premium-gold transition-colors">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts for Premium Interactivity -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // 1. Scroll Progress Bar
+            const progressBar = document.getElementById('scroll-progress');
+            window.addEventListener('scroll', () => {
+                const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+                const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const scrolled = (winScroll / height) * 100;
+                progressBar.style.width = scrolled + "%";
+            });
+
+            // 2. Sophisticated Navigation Glass Effect
+            const navbar = document.getElementById('navbar');
+            const navPill = document.querySelector('.nav-pill');
+            const navTexts = document.querySelectorAll('.nav-text');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('header-glass', 'py-4');
+                    navbar.classList.remove('py-6');
+                    
+                    if(navPill) {
+                        navPill.classList.remove('bg-white/5', 'border-white/10');
+                        navPill.classList.add('bg-transparent', 'border-transparent');
+                    }
+                } else {
+                    navbar.classList.remove('header-glass', 'py-4');
+                    navbar.classList.add('py-6');
+                    
+                    if(navPill) {
+                        navPill.classList.add('bg-white/5', 'border-white/10');
+                        navPill.classList.remove('bg-transparent', 'border-transparent');
+                    }
+                }
+            });
+
+            // 3. Mobile Menu Handling with Fade
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const closeMenuBtn = document.getElementById('close-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileLinks = document.querySelectorAll('.mobile-link');
+            
+            function toggleMenu() {
+                if (mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.remove('hidden');
+                    // slight delay to allow display:block to apply before opacity transition
+                    setTimeout(() => mobileMenu.classList.remove('opacity-0'), 10);
+                    document.body.style.overflow = 'hidden'; // Prevent scrolling
+                } else {
+                    mobileMenu.classList.add('opacity-0');
+                    setTimeout(() => {
+                        mobileMenu.classList.add('hidden');
+                        document.body.style.overflow = '';
+                    }, 300);
+                }
+            }
+
+            mobileMenuBtn.addEventListener('click', toggleMenu);
+            closeMenuBtn.addEventListener('click', toggleMenu);
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', toggleMenu);
+            });
+
+            // 4. Advanced Intersection Observer for Reveals
+            const revealElements = document.querySelectorAll('.reveal-up, .reveal-left, .reveal-right');
+            
+            const revealOptions = {
+                threshold: 0.15,
+                rootMargin: "0px 0px -100px 0px"
+            };
+
+            const revealOnScroll = new IntersectionObserver(function(entries, observer) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        // Optional: stop observing once revealed
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, revealOptions);
+
+            revealElements.forEach(el => {
+                revealOnScroll.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>

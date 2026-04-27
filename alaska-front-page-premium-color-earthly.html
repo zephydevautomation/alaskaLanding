@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Advanced SEO Meta Tags -->
+    <meta name="description" content="Experience raw, authentic Alaska. Book rugged wildlife treks, glacier expeditions, offbeat multi-day tours, and reliable overland transfers. Connect instantly via WhatsApp.">
+    <meta name="keywords" content="Alaska travel, Alaska adventure, Anchorage treks, glacier hiking, bear viewing, overland transfers, Denali exploration, WhatsApp travel booking">
+    <meta name="author" content="Alaska Travel Services">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://alaskatravelservices.net/">
+    
+    <!-- Open Graph / Social SEO -->
+    <meta property="og:title" content="Alaska Travel Services | Authentic Wilderness Expeditions">
+    <meta property="og:description" content="Explore the untamed Alaskan frontier. Connect instantly via our automated guides on WhatsApp, Instagram, or Messenger.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://alaskatravelservices.net/">
+    
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TravelAgency",
+      "name": "Alaska Travel Services",
+      "image": "https://picsum.photos/id/1036/1920/1080",
+      "url": "https://alaskatravelservices.net/",
+      "telephone": "+19074402646",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "P.O. Box 211089",
+        "addressLocality": "Anchorage",
+        "addressRegion": "AK",
+        "postalCode": "99521",
+        "addressCountry": "US"
+      },
+      "priceRange": "$$$",
+      "sameAs": [
+        "https://www.facebook.com/alaskatravelservices",
+        "https://www.instagram.com/alaskatravelservices"
+      ]
+    }
+    </script>
+    
+    <title>Alaska Travel Services | Authentic Wilderness Expeditions</title>
+    
+    <!-- Clean & Modern Premium Fonts (Outfit + Inter) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Outfit:wght@400;600;800;900&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        adv: {
+                            green: '#2D6A4F',    // Forest Green (Primary)
+                            brown: '#8D6E63',    // Brown (Secondary)
+                            orange: '#E76F51',   // Burnt Orange (Accent)
+                            beige: '#F1FAEE',    // Light Beige (Background)
+                            dark: '#1A281F',     // Very Dark Green for heavy text
+                            white: '#FFFFFF',
+                            whatsapp: '#25D366', 
+                            messenger: '#00B2FF' 
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Outfit"', 'sans-serif'], // For Headings and UI Elements
+                        body: ['"Inter"', 'sans-serif'],  // For Paragraphs and Descriptions
+                    },
+                    boxShadow: {
+                        'raw': '15px 15px 0px 0px rgba(45, 106, 79, 0.1)',
+                        'raw-hover': '8px 8px 0px 0px rgba(231, 111, 81, 1)',
+                        'photo': '0 20px 40px -10px rgba(0,0,0,0.3)'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Base Styling & Scrollbar */
+        body { background-color: #F1FAEE; color: #1A281F; overflow-x: hidden; }
+        ::-webkit-scrollbar { width: 12px; }
+        ::-webkit-scrollbar-track { background: #F1FAEE; border-left: 1px solid #8D6E63; }
+        ::-webkit-scrollbar-thumb { background: #E76F51; }
+        ::-webkit-scrollbar-thumb:hover { background: #2D6A4F; }
+
+        /* Scroll Progress Bar */
+        #scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 6px;
+            background: #E76F51;
+            z-index: 1000;
+            transition: width 0.1s;
+        }
+
+        /* Advanced Reveal Animations */
+        .reveal-up { opacity: 0; transform: translateY(40px); transition: all 0.8s ease-out; }
+        .reveal-left { opacity: 0; transform: translateX(-40px); transition: all 0.8s ease-out; }
+        .reveal-right { opacity: 0; transform: translateX(40px); transition: all 0.8s ease-out; }
+        .reveal-up.active, .reveal-left.active, .reveal-right.active { opacity: 1; transform: translate(0, 0); }
+        
+        /* Staggered Delays */
+        .delay-100 { transition-delay: 100ms; }
+        .delay-200 { transition-delay: 200ms; }
+        .delay-300 { transition-delay: 300ms; }
+
+        /* Solid Header */
+        .header-solid {
+            background-color: #F1FAEE;
+            border-bottom: 2px solid #2D6A4F;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+
+        /* Custom Button Hover - Rugged Fill */
+        .btn-rugged {
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            transition: color 0.3s ease;
+        }
+        .btn-rugged::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background-color: #2D6A4F;
+            transition: left 0.4s ease;
+            z-index: -1;
+        }
+        .btn-rugged:hover::before { left: 0; }
+        .btn-rugged:hover { color: #F1FAEE; border-color: #2D6A4F; }
+
+        /* Timeline Line */
+        .timeline-line::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 2rem;
+            width: 2px;
+            background: rgba(141, 110, 99, 0.3);
+            z-index: 0;
+        }
+        @media (min-width: 1024px) {
+            .timeline-line::before { left: 50%; transform: translateX(-50%); }
+        }
+
+        /* Photo Frame */
+        .photo-frame {
+            background: #FFFFFF;
+            padding: 12px 12px 40px 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            transition: transform 0.4s ease;
+        }
+        .photo-frame:hover {
+            transform: scale(1.02) rotate(-1deg);
+            z-index: 10;
+        }
+
+        /* Webchat Widget */
+        .chat-window {
+            transform-origin: bottom right;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .chat-window.hidden-chat {
+            transform: scale(0);
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        /* Instagram Gradient */
+        .bg-instagram {
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+        }
+
+        /* Texture overlay */
+        .bg-texture {
+            background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%238d6e63' fill-opacity='0.05' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E");
+        }
+    </style>
+</head>
+<body class="font-sans bg-texture antialiased selection:bg-adv-orange selection:text-white">
+
+    <!-- Scroll Progress -->
+    <div id="scroll-progress"></div>
+
+    <!-- Solid Rugged Navigation -->
+    <header id="navbar" class="fixed w-full z-50 transition-all duration-300 py-6 top-0 px-4 sm:px-6 lg:px-8 border-b-2 border-transparent">
+        <div class="max-w-7xl mx-auto">
+            <nav class="flex justify-between items-center" aria-label="Main Navigation">
+                
+                <!-- Logo -->
+                <a href="#" class="flex-shrink-0 flex items-center z-50 group">
+                    <span class="font-sans font-black uppercase text-2xl md:text-3xl tracking-tighter text-adv-green group-hover:text-adv-orange transition-colors">
+                        Alaska<span class="text-adv-brown">Expeditions</span>
+                    </span>
+                </a>
+
+                <!-- Desktop Menu -->
+                <div class="hidden lg:flex space-x-10 items-center">
+                    <a href="#activities" class="text-adv-dark hover:text-adv-orange font-bold text-xs uppercase tracking-[0.2em] transition-colors">Treks</a>
+                    <a href="#transfers" class="text-adv-dark hover:text-adv-orange font-bold text-xs uppercase tracking-[0.2em] transition-colors">Overland</a>
+                    <a href="#packages" class="text-adv-dark hover:text-adv-orange font-bold text-xs uppercase tracking-[0.2em] transition-colors">Expeditions</a>
+                    <a href="#automation" class="text-adv-orange hover:text-adv-green font-black text-xs uppercase tracking-[0.2em] transition-colors flex items-center">
+                        <i class="fa-brands fa-whatsapp mr-2 text-lg"></i> Comms
+                    </a>
+                </div>
+
+                <!-- CTA & Mobile Toggle -->
+                <div class="flex items-center space-x-4 z-50">
+                    <a href="#contact" class="hidden md:inline-flex bg-adv-orange text-white border-2 border-adv-orange px-8 py-3 font-black text-xs uppercase tracking-widest hover:bg-adv-green hover:border-adv-green transition-all duration-300">
+                        Join Log
+                    </a>
+                    <button id="mobile-menu-btn" class="lg:hidden text-adv-dark hover:text-adv-orange focus:outline-none" aria-label="Toggle menu">
+                        <i class="fa-solid fa-bars text-3xl"></i>
+                    </button>
+                </div>
+            </nav>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="fixed inset-0 bg-adv-beige z-40 hidden opacity-0 transition-opacity duration-300 flex flex-col justify-center items-center border-b-8 border-adv-green">
+            <button id="close-menu-btn" class="absolute top-8 right-8 text-adv-dark text-4xl hover:text-adv-orange transition-colors"><i class="fa-solid fa-xmark"></i></button>
+            <div class="flex flex-col text-center space-y-10 w-full px-6">
+                <a href="#activities" class="mobile-link text-3xl font-black uppercase tracking-widest text-adv-green hover:text-adv-orange transition-colors">Treks</a>
+                <a href="#transfers" class="mobile-link text-3xl font-black uppercase tracking-widest text-adv-green hover:text-adv-orange transition-colors">Overland</a>
+                <a href="#packages" class="mobile-link text-3xl font-black uppercase tracking-widest text-adv-green hover:text-adv-orange transition-colors">Expeditions</a>
+                <a href="#automation" class="mobile-link text-3xl font-black uppercase tracking-widest text-adv-orange flex items-center justify-center">
+                    <i class="fa-brands fa-whatsapp mr-3"></i> Comms
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Editorial Collage Hero Section -->
+        <section class="relative min-h-[90vh] pt-32 pb-20 overflow-hidden flex items-center border-b-4 border-adv-green">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative">
+                <div class="flex flex-col lg:flex-row items-center">
+                    
+                    <!-- Left Side: Bold Typography -->
+                    <div class="w-full lg:w-5/12 z-20 reveal-left">
+                        <div class="inline-flex items-center space-x-3 mb-8">
+                            <div class="w-12 h-1 bg-adv-orange"></div>
+                            <span class="text-adv-brown text-xs font-bold uppercase tracking-[0.3em]">Off The Grid</span>
+                        </div>
+                        
+                        <h1 class="text-6xl sm:text-7xl lg:text-[6rem] font-black uppercase tracking-tighter text-adv-dark leading-[0.9] mb-8">
+                            Raw. <br>
+                            <span class="text-adv-green">Wild.</span> <br>
+                            Alaska.
+                        </h1>
+                        
+                        <p class="font-body text-lg text-adv-brown mb-10 leading-relaxed max-w-md border-l-4 border-adv-orange pl-6">
+                            Leave the beaten path. Book authentic wildlife treks, raw glacier expeditions, and rugged overland transport.
+                        </p>
+                        
+                        <div class="flex flex-col sm:flex-row items-center gap-6">
+                            <a href="#activities" class="btn-rugged border-2 border-adv-green text-adv-green px-10 py-4 font-black uppercase tracking-widest text-sm w-full sm:w-auto text-center shadow-raw">
+                                Start Exploring
+                            </a>
+                            <a href="#automation" class="text-adv-orange font-bold uppercase tracking-widest text-sm hover:text-adv-green transition-colors border-b-2 border-adv-orange pb-1 flex items-center justify-center w-full sm:w-auto">
+                                <i class="fa-solid fa-satellite-dish mr-2"></i> Field Quote
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Right Side: Scrapbook Photo Collage -->
+                    <div class="w-full lg:w-7/12 relative h-[500px] lg:h-[700px] mt-16 lg:mt-0 reveal-right">
+                        <!-- Main Large Image -->
+                        <div class="absolute top-10 right-0 w-[70%] h-[70%] z-10 photo-frame rotate-2">
+                            <img src="https://picsum.photos/id/1036/800/1000" alt="Rugged Alaskan Mountains" class="w-full h-full object-cover" crossorigin="anonymous">
+                            <p class="font-body italic text-adv-brown text-center mt-4 text-sm">Denali Basecamp, Summer '24</p>
+                        </div>
+                        
+                        <!-- Secondary Overlapping Image -->
+                        <div class="absolute bottom-10 left-0 w-[50%] h-[50%] z-20 photo-frame -rotate-3 border-l-8 border-t-8 border-adv-beige">
+                            <img src="https://picsum.photos/id/1018/600/600" alt="Glacier Trekking" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500" crossorigin="anonymous">
+                            <div class="absolute -top-4 left-1/2 -translate-x-1/2 w-16 h-4 bg-yellow-200/50 backdrop-blur shadow-sm rotate-2"></div> <!-- Tape effect -->
+                        </div>
+
+                        <!-- Accent Graphic -->
+                        <div class="absolute top-0 left-1/4 z-0 text-adv-green/10 text-[10rem] font-black leading-none uppercase">
+                            AK
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Social Automation: The "Comms Station" -->
+        <section id="automation" class="py-24 bg-adv-dark text-adv-beige relative border-b-8 border-adv-orange">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <header class="mb-16 reveal-up flex flex-col md:flex-row justify-between items-end border-b border-adv-green/30 pb-8">
+                    <div>
+                        <span class="text-adv-orange font-bold tracking-[0.2em] text-xs uppercase mb-4 block">Field Communications</span>
+                        <h2 class="text-4xl md:text-5xl font-black uppercase tracking-tighter text-white">Instant Intel</h2>
+                    </div>
+                    <p class="font-body text-adv-beige/70 max-w-md mt-6 md:mt-0 text-lg">
+                        Connect directly with our automated guides on the grid. Get instant pricing, gear lists, and trek availability.
+                    </p>
+                </header>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- WhatsApp -->
+                    <div class="bg-white/5 border border-white/10 p-8 hover:bg-adv-green/20 hover:border-adv-whatsapp transition-all duration-300 reveal-up group">
+                        <div class="w-12 h-12 bg-adv-whatsapp text-white flex items-center justify-center text-2xl mb-8 group-hover:scale-110 transition-transform">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </div>
+                        <h4 class="text-2xl font-black uppercase tracking-tight text-white mb-4">WhatsApp Log</h4>
+                        <p class="font-body text-adv-beige/60 mb-8 h-16">Ping us your deployment dates to receive automated pricing and survival itineraries.</p>
+                        <a href="https://wa.me/19074402646" target="_blank" class="bg-adv-whatsapp text-adv-dark font-bold text-xs uppercase tracking-widest px-6 py-3 inline-block hover:bg-white transition-colors">Initiate Chat</a>
+                    </div>
+
+                    <!-- Messenger -->
+                    <div class="bg-white/5 border border-white/10 p-8 hover:bg-adv-green/20 hover:border-adv-messenger transition-all duration-300 reveal-up delay-100 group">
+                        <div class="w-12 h-12 bg-adv-messenger text-white flex items-center justify-center text-2xl mb-8 group-hover:scale-110 transition-transform">
+                            <i class="fa-brands fa-facebook-messenger"></i>
+                        </div>
+                        <h4 class="text-2xl font-black uppercase tracking-tight text-white mb-4">Messenger Uplink</h4>
+                        <p class="font-body text-adv-beige/60 mb-8 h-16">Browse terrain maps and secure overland transfers directly within Facebook.</p>
+                        <a href="#" class="bg-adv-messenger text-white font-bold text-xs uppercase tracking-widest px-6 py-3 inline-block hover:bg-white hover:text-adv-dark transition-colors">Connect</a>
+                    </div>
+
+                    <!-- Instagram -->
+                    <div class="bg-white/5 border border-white/10 p-8 hover:bg-adv-green/20 hover:border-pink-500 transition-all duration-300 reveal-up delay-200 group">
+                        <div class="w-12 h-12 bg-instagram text-white flex items-center justify-center text-2xl mb-8 group-hover:scale-110 transition-transform">
+                            <i class="fa-brands fa-instagram"></i>
+                        </div>
+                        <h4 class="text-2xl font-black uppercase tracking-tight text-white mb-4">IG Recon</h4>
+                        <p class="font-body text-adv-beige/60 mb-8 h-16">DM keywords like "Glacier" or "Bear" to access automated visual briefings.</p>
+                        <a href="#" class="bg-pink-600 text-white font-bold text-xs uppercase tracking-widest px-6 py-3 inline-block hover:bg-white hover:text-adv-dark transition-colors">Send Comms</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Activities Section: The Expedition Timeline -->
+        <section id="activities" class="py-32 relative">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative timeline-line">
+                
+                <header class="text-center mb-24 reveal-up relative z-10 bg-adv-beige py-4">
+                    <span class="text-adv-orange font-bold tracking-[0.3em] text-xs uppercase mb-4 inline-block border-2 border-adv-orange px-4 py-1">Field Expeditions</span>
+                    <h2 class="text-5xl md:text-6xl font-black uppercase tracking-tighter text-adv-dark mt-4">Summer Treks</h2>
+                </header>
+
+                <div class="space-y-24">
+                    
+                    <!-- Trek 1: Left Aligned Content -->
+                    <article class="relative z-10 flex flex-col lg:flex-row items-center justify-between group reveal-up">
+                        <!-- Timeline Node -->
+                        <div class="hidden lg:flex absolute left-1/2 -translate-x-1/2 w-6 h-6 bg-adv-orange rounded-full border-4 border-adv-beige z-20 shadow-md"></div>
+                        
+                        <div class="w-full lg:w-[45%] mb-8 lg:mb-0 text-left lg:text-right pr-0 lg:pr-12">
+                            <span class="text-adv-brown font-black text-6xl opacity-20 block mb-[-20px] tracking-tighter">01</span>
+                            <h3 class="text-3xl font-black uppercase text-adv-green mb-4">Glacier Ice Walk</h3>
+                            <p class="font-body text-adv-brown mb-6 leading-relaxed">Strap on crampons and step directly onto ancient, shifting ice. Guided by seasoned mountaineers, you'll navigate crevasses and ice caves.</p>
+                            <button class="text-adv-orange font-bold uppercase tracking-widest text-xs border-b-2 border-adv-orange pb-1 hover:text-adv-dark transition-colors open-chat-trigger">Request Briefing</button>
+                        </div>
+                        
+                        <div class="w-full lg:w-[45%] pl-0 lg:pl-12">
+                            <div class="photo-frame -rotate-2">
+                                <img src="https://picsum.photos/id/1018/600/400" alt="Glacier Walk" class="w-full h-64 object-cover grayscale group-hover:grayscale-0 transition-all duration-500" crossorigin="anonymous">
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Trek 2: Right Aligned Content -->
+                    <article class="relative z-10 flex flex-col lg:flex-row-reverse items-center justify-between group reveal-up">
+                        <!-- Timeline Node -->
+                        <div class="hidden lg:flex absolute left-1/2 -translate-x-1/2 w-6 h-6 bg-adv-green rounded-full border-4 border-adv-beige z-20 shadow-md"></div>
+                        
+                        <div class="w-full lg:w-[45%] mb-8 lg:mb-0 text-left pl-0 lg:pl-12">
+                            <span class="text-adv-brown font-black text-6xl opacity-20 block mb-[-20px] tracking-tighter">02</span>
+                            <h3 class="text-3xl font-black uppercase text-adv-dark mb-4">Grizzly Recon Safari</h3>
+                            <p class="font-body text-adv-brown mb-6 leading-relaxed">Deploy into the deep brush from Anchorage. Track and observe North America's apex predators safely in their raw, natural hunting grounds.</p>
+                            <button class="text-adv-orange font-bold uppercase tracking-widest text-xs border-b-2 border-adv-orange pb-1 hover:text-adv-dark transition-colors open-chat-trigger">Request Briefing</button>
+                        </div>
+                        
+                        <div class="w-full lg:w-[45%] pr-0 lg:pr-12">
+                            <div class="photo-frame rotate-2">
+                                <img src="https://picsum.photos/id/1020/600/400" alt="Bear Viewing" class="w-full h-64 object-cover grayscale group-hover:grayscale-0 transition-all duration-500" crossorigin="anonymous">
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Trek 3: Left Aligned Content -->
+                    <article class="relative z-10 flex flex-col lg:flex-row items-center justify-between group reveal-up">
+                        <!-- Timeline Node -->
+                        <div class="hidden lg:flex absolute left-1/2 -translate-x-1/2 w-6 h-6 bg-adv-brown rounded-full border-4 border-adv-beige z-20 shadow-md"></div>
+                        
+                        <div class="w-full lg:w-[45%] mb-8 lg:mb-0 text-left lg:text-right pr-0 lg:pr-12">
+                            <span class="text-adv-brown font-black text-6xl opacity-20 block mb-[-20px] tracking-tighter">03</span>
+                            <h3 class="text-3xl font-black uppercase text-adv-green mb-4">Urban Basecamp Tour</h3>
+                            <p class="font-body text-adv-brown mb-6 leading-relaxed">A rugged exploration of Anchorage's history, survivalist culture, and strategic viewpoints over the surrounding wild frontiers.</p>
+                            <button class="text-adv-orange font-bold uppercase tracking-widest text-xs border-b-2 border-adv-orange pb-1 hover:text-adv-dark transition-colors open-chat-trigger">Request Briefing</button>
+                        </div>
+                        
+                        <div class="w-full lg:w-[45%] pl-0 lg:pl-12">
+                            <div class="photo-frame rotate-1">
+                                <img src="https://picsum.photos/id/1036/600/400" alt="Anchorage Outpost" class="w-full h-64 object-cover grayscale group-hover:grayscale-0 transition-all duration-500" crossorigin="anonymous">
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Overland Transfers: Blocky & Industrial -->
+        <section id="transfers" class="py-24 bg-adv-green text-adv-beige border-t-8 border-b-8 border-adv-dark">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <header class="flex flex-col md:flex-row justify-between items-end mb-16 reveal-up">
+                    <div>
+                        <span class="text-adv-orange font-bold tracking-[0.2em] text-xs uppercase mb-2 block">Logistics Division</span>
+                        <h2 class="text-4xl md:text-6xl font-black uppercase tracking-tighter text-white">Overland Transport</h2>
+                    </div>
+                    <p class="font-body text-adv-beige/70 max-w-sm mt-6 md:mt-0 text-lg border-l-4 border-adv-orange pl-4">
+                        Heavy-duty, reliable extraction and transport between Anchorage, Seward, and Whittier ports.
+                    </p>
+                </header>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+                    <!-- Route List -->
+                    <div class="space-y-4 reveal-left">
+                        <div class="bg-adv-dark p-6 border-l-4 border-adv-orange flex justify-between items-center group cursor-pointer hover:bg-black transition-colors open-chat-trigger">
+                            <div>
+                                <h4 class="font-black uppercase text-xl mb-1 flex items-center">Seward <i class="fa-solid fa-angles-right text-adv-orange mx-3 text-sm"></i> Anchorage</h4>
+                                <p class="font-body text-adv-beige/50 text-sm">Port to Basecamp direct relay.</p>
+                            </div>
+                            <i class="fa-solid fa-satellite-dish text-adv-orange opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                        </div>
+                        <div class="bg-adv-dark p-6 border-l-4 border-adv-orange flex justify-between items-center group cursor-pointer hover:bg-black transition-colors open-chat-trigger">
+                            <div>
+                                <h4 class="font-black uppercase text-xl mb-1 flex items-center">Whittier <i class="fa-solid fa-angles-right text-adv-orange mx-3 text-sm"></i> Anchorage</h4>
+                                <p class="font-body text-adv-beige/50 text-sm">Mountain pass extraction route.</p>
+                            </div>
+                            <i class="fa-solid fa-satellite-dish text-adv-orange opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                        </div>
+                    </div>
+
+                    <!-- Fleet Grid -->
+                    <div class="grid grid-cols-2 gap-4 reveal-right">
+                        <div class="border-2 border-adv-beige/20 p-6 flex flex-col items-center justify-center text-center hover:bg-adv-orange hover:border-adv-orange transition-colors group">
+                            <i class="fa-solid fa-truck-pickup text-4xl mb-4 text-adv-beige/50 group-hover:text-white transition-colors"></i>
+                            <h5 class="font-black uppercase tracking-widest text-sm">Rigged SUV</h5>
+                            <p class="font-body text-xs text-adv-beige/60 mt-2">2-3 Operatives</p>
+                        </div>
+                        <div class="border-2 border-adv-beige/20 p-6 flex flex-col items-center justify-center text-center hover:bg-adv-orange hover:border-adv-orange transition-colors group">
+                            <i class="fa-solid fa-truck-monster text-4xl mb-4 text-adv-beige/50 group-hover:text-white transition-colors"></i>
+                            <h5 class="font-black uppercase tracking-widest text-sm">Heavy SUV</h5>
+                            <p class="font-body text-xs text-adv-beige/60 mt-2">Up to 6 Operatives</p>
+                        </div>
+                        <div class="border-2 border-adv-beige/20 p-6 flex flex-col items-center justify-center text-center hover:bg-adv-orange hover:border-adv-orange transition-colors group">
+                            <i class="fa-solid fa-van-shuttle text-4xl mb-4 text-adv-beige/50 group-hover:text-white transition-colors"></i>
+                            <h5 class="font-black uppercase tracking-widest text-sm">Squad Van</h5>
+                            <p class="font-body text-xs text-adv-beige/60 mt-2">12-15 Operatives</p>
+                        </div>
+                        <div class="border-2 border-adv-beige/20 p-6 flex flex-col items-center justify-center text-center hover:bg-adv-orange hover:border-adv-orange transition-colors group">
+                            <i class="fa-solid fa-bus text-4xl mb-4 text-adv-beige/50 group-hover:text-white transition-colors"></i>
+                            <h5 class="font-black uppercase tracking-widest text-sm">Troop Coach</h5>
+                            <p class="font-body text-xs text-adv-beige/60 mt-2">Mass Transport</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Multi-Day Packages: Rugged Cards -->
+        <section id="packages" class="py-32 bg-adv-beige">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <header class="text-center mb-20 reveal-up">
+                    <i class="fa-solid fa-compass text-4xl text-adv-orange mb-6"></i>
+                    <h2 class="text-5xl md:text-7xl font-black uppercase tracking-tighter text-adv-dark mb-6">Long-Range Expeditions</h2>
+                    <p class="font-body text-adv-brown max-w-2xl mx-auto text-lg">Fully guided, multi-day survivals and explorations. Guarantee departures to the deep wild.</p>
+                </header>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Expedition 1 -->
+                    <article class="bg-white border-4 border-adv-dark p-2 hover:shadow-raw-hover transition-all duration-300 reveal-up group relative">
+                        <div class="absolute -top-4 -right-4 bg-adv-dark text-adv-beige font-black text-[10px] px-3 py-1 uppercase tracking-widest z-10 border-2 border-adv-beige">6D/5N</div>
+                        <div class="relative h-64 overflow-hidden border-2 border-adv-dark mb-4">
+                            <img src="https://picsum.photos/id/1043/800/600" alt="Alaska Explorer" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" crossorigin="anonymous">
+                        </div>
+                        <div class="p-4">
+                            <h4 class="text-2xl font-black uppercase text-adv-dark mb-2">Alaska Explorer</h4>
+                            <p class="font-body text-adv-brown text-sm mb-6 line-clamp-3">Introductory multi-day relay covering glaciers and wildlife zones in Southcentral territories.</p>
+                            <button class="w-full bg-adv-green text-white font-black uppercase tracking-widest text-xs py-3 hover:bg-adv-dark transition-colors open-chat-trigger">Request Roster</button>
+                        </div>
+                    </article>
+
+                    <!-- Expedition 2 -->
+                    <article class="bg-adv-dark border-4 border-adv-dark p-2 hover:shadow-raw-hover transition-all duration-300 reveal-up delay-100 group relative transform md:-translate-y-6">
+                        <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-adv-orange text-white font-black text-[10px] px-4 py-2 uppercase tracking-widest z-10 border-2 border-adv-dark whitespace-nowrap">Prime Directive</div>
+                        <div class="absolute -bottom-4 -left-4 bg-white text-adv-dark font-black text-[10px] px-3 py-1 uppercase tracking-widest z-10 border-2 border-adv-dark">8D/7N</div>
+                        <div class="relative h-64 overflow-hidden border-2 border-adv-beige mb-4 opacity-80 group-hover:opacity-100 transition-opacity">
+                            <img src="https://picsum.photos/id/1044/800/600" alt="National Parks" class="w-full h-full object-cover" crossorigin="anonymous">
+                        </div>
+                        <div class="p-4">
+                            <h4 class="text-2xl font-black uppercase text-white mb-2">Nat-Park Penetration</h4>
+                            <p class="font-body text-adv-beige/70 text-sm mb-6 line-clamp-3">Deep infiltration into Denali and Kenai Fjords. For those seeking maximum exposure to untouched terrain.</p>
+                            <button class="w-full bg-adv-orange text-adv-dark font-black uppercase tracking-widest text-xs py-3 hover:bg-white transition-colors open-chat-trigger">Request Roster</button>
+                        </div>
+                    </article>
+
+                    <!-- Expedition 3 -->
+                    <article class="bg-white border-4 border-adv-dark p-2 hover:shadow-raw-hover transition-all duration-300 reveal-up delay-200 group relative">
+                        <div class="absolute -top-4 -right-4 bg-adv-dark text-adv-beige font-black text-[10px] px-3 py-1 uppercase tracking-widest z-10 border-2 border-adv-beige">8D/7N</div>
+                        <div class="relative h-64 overflow-hidden border-2 border-adv-dark mb-4">
+                            <img src="https://picsum.photos/id/1050/800/600" alt="Grand Alaska" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" crossorigin="anonymous">
+                        </div>
+                        <div class="p-4">
+                            <h4 class="text-2xl font-black uppercase text-adv-dark mb-2">Grand Traverse</h4>
+                            <p class="font-body text-adv-brown text-sm mb-6 line-clamp-3">Massive landscape traversal utilizing rail networks, sea vessels, and remote lodges.</p>
+                            <button class="w-full bg-adv-green text-white font-black uppercase tracking-widest text-xs py-3 hover:bg-adv-dark transition-colors open-chat-trigger">Request Roster</button>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Themed Chatbot: "Field Radio" -->
+    <div id="chat-container" class="fixed bottom-6 right-6 z-[100] flex flex-col items-end">
+        <!-- Chat Window -->
+        <div id="chat-window" class="chat-window hidden-chat bg-adv-beige w-80 sm:w-96 border-4 border-adv-dark shadow-raw mb-4 overflow-hidden flex flex-col h-[450px]">
+            <!-- Header -->
+            <div class="bg-adv-dark p-4 flex items-center justify-between text-adv-beige border-b-4 border-adv-orange">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-adv-green flex items-center justify-center text-white border-2 border-adv-beige">
+                        <i class="fa-solid fa-walkie-talkie text-sm"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-black uppercase tracking-widest text-sm leading-tight">Field Guide Bot</h4>
+                        <p class="font-body text-[10px] text-adv-beige/60 flex items-center"><span class="w-2 h-2 bg-adv-orange mr-1 inline-block animate-pulse border border-adv-dark"></span> Signal Active</p>
+                    </div>
+                </div>
+                <button id="close-chat" class="text-adv-beige/50 hover:text-white transition-colors"><i class="fa-solid fa-xmark text-2xl"></i></button>
+            </div>
+            
+            <!-- Messages Area -->
+            <div class="flex-grow bg-texture p-4 overflow-y-auto space-y-4" id="chat-messages">
+                <div class="flex items-start max-w-[85%]">
+                    <div class="w-8 h-8 bg-adv-green flex-shrink-0 flex items-center justify-center mr-2 mt-1 border-2 border-adv-dark text-white">
+                        <i class="fa-solid fa-walkie-talkie text-xs"></i>
+                    </div>
+                    <div class="bg-white p-3 border-2 border-adv-dark font-body text-sm text-adv-dark rounded-br-xl shadow-[4px_4px_0px_0px_rgba(26,40,31,0.2)]">
+                        HQ online. Welcome to Alaska Expeditions. Requesting intel on tour pricing, overland transport, or human dispatch?
+                    </div>
+                </div>
+                
+                <!-- Quick Options -->
+                <div class="flex flex-wrap gap-2 ml-10">
+                    <button class="bg-adv-dark text-white font-black uppercase text-[10px] tracking-widest px-3 py-2 hover:bg-adv-orange transition-colors border border-adv-dark chat-option">Intel: Pricing</button>
+                    <button class="bg-adv-dark text-white font-black uppercase text-[10px] tracking-widest px-3 py-2 hover:bg-adv-orange transition-colors border border-adv-dark chat-option">Intel: Transport</button>
+                    <button class="bg-adv-whatsapp text-adv-dark font-black uppercase text-[10px] tracking-widest px-3 py-2 hover:bg-white transition-colors border border-adv-dark chat-option">Connect Comms (WA)</button>
+                </div>
+            </div>
+            
+            <!-- Input Area -->
+            <div class="p-3 bg-white border-t-4 border-adv-dark flex items-center gap-2">
+                <input type="text" placeholder="Transmit message..." class="flex-grow bg-adv-beige px-4 py-2 font-body text-sm text-adv-dark placeholder-adv-brown outline-none border-2 border-adv-dark focus:border-adv-orange transition-colors rounded-none" id="chat-input">
+                <button class="w-10 h-10 bg-adv-orange text-white flex items-center justify-center hover:bg-adv-dark transition-colors flex-shrink-0 border-2 border-adv-dark">
+                    <i class="fa-solid fa-chevron-right text-sm"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Chat Trigger Button -->
+        <button id="chat-toggle-btn" class="w-16 h-16 bg-adv-dark text-adv-orange border-4 border-adv-orange flex items-center justify-center text-2xl shadow-[8px_8px_0px_0px_rgba(231,111,81,0.5)] hover:bg-adv-orange hover:text-adv-dark transition-all group relative">
+            <i class="fa-solid fa-satellite-dish"></i>
+            <!-- Notification Dot -->
+            <span class="absolute -top-2 -right-2 w-5 h-5 bg-adv-whatsapp border-2 border-adv-dark animate-pulse"></span>
+            
+            <!-- Hover Tooltip -->
+            <span class="absolute -top-12 right-0 bg-adv-dark text-adv-beige border-2 border-adv-orange font-black uppercase text-[10px] tracking-widest px-3 py-2 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">Open Comms</span>
+        </button>
+    </div>
+
+    <!-- Rugged Footer -->
+    <footer id="contact" class="bg-adv-dark text-adv-beige pt-24 pb-12 border-t-[12px] border-adv-orange relative overflow-hidden">
+        <div class="absolute inset-0 bg-texture opacity-20 pointer-events-none"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
+                
+                <!-- Brand & Mission -->
+                <div class="col-span-1 md:col-span-12 lg:col-span-5">
+                    <span class="font-sans font-black uppercase text-3xl tracking-tighter text-adv-green block mb-6">
+                        Alaska<span class="text-adv-orange">Expeditions</span>
+                    </span>
+                    <p class="font-body text-adv-beige/60 mb-8 max-w-sm leading-relaxed text-sm">
+                        Committed to raw, authentic survival and exploration. From rigged transfers to deep-wild multi-day traverses, we are your boots on the ground in Alaska.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" aria-label="Messenger" class="w-10 h-10 border-2 border-adv-beige/20 flex items-center justify-center hover:bg-adv-messenger hover:border-adv-messenger text-white transition-all"><i class="fa-brands fa-facebook-messenger"></i></a>
+                        <a href="#" aria-label="Instagram" class="w-10 h-10 border-2 border-adv-beige/20 flex items-center justify-center hover:bg-pink-600 hover:border-pink-600 text-white transition-all"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" aria-label="WhatsApp" class="w-10 h-10 border-2 border-adv-beige/20 flex items-center justify-center hover:bg-adv-whatsapp hover:border-adv-whatsapp text-white transition-all"><i class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                </div>
+
+                <!-- Contact Information -->
+                <div class="col-span-1 md:col-span-6 lg:col-span-4">
+                    <h4 class="text-adv-orange font-black tracking-[0.2em] text-xs uppercase mb-6">Basecamp Comms</h4>
+                    <ul class="space-y-6 font-body">
+                        <li class="flex items-start group">
+                            <i class="fa-solid fa-phone text-adv-green mt-1 w-6"></i>
+                            <div>
+                                <p class="font-sans text-[10px] text-adv-beige/40 font-black uppercase tracking-widest mb-1">Radio Channel</p>
+                                <a href="tel:9074402646" class="text-lg hover:text-adv-orange transition-colors">(907) 440-2646</a>
+                            </div>
+                        </li>
+                        <li class="flex items-start group">
+                            <i class="fa-solid fa-envelope text-adv-green mt-1 w-6"></i>
+                            <div>
+                                <p class="font-sans text-[10px] text-adv-beige/40 font-black uppercase tracking-widest mb-1">Digital Dispatch</p>
+                                <a href="mailto:sales@alaskatravelservices.net" class="text-sm hover:text-adv-orange transition-colors">sales@alaskatravelservices.net</a>
+                            </div>
+                        </li>
+                        <li class="flex items-start group">
+                            <i class="fa-solid fa-location-dot text-adv-green mt-1 w-6"></i>
+                            <div>
+                                <p class="font-sans text-[10px] text-adv-beige/40 font-black uppercase tracking-widest mb-1">HQ Coordinates</p>
+                                <p class="text-sm text-adv-beige/80">P.O. Box 211089<br>Anchorage, AK 99521 USA</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Quick Navigation -->
+                <div class="col-span-1 md:col-span-6 lg:col-span-3">
+                    <h4 class="text-adv-orange font-black tracking-[0.2em] text-xs uppercase mb-6">Nav Data</h4>
+                    <ul class="space-y-3 font-black uppercase tracking-widest text-xs text-adv-beige/70">
+                        <li><a href="#automation" class="hover:text-adv-orange hover:translate-x-2 inline-block transition-transform text-adv-orange">Comms / AI</a></li>
+                        <li><a href="#activities" class="hover:text-adv-green hover:translate-x-2 inline-block transition-transform">Treks</a></li>
+                        <li><a href="#transfers" class="hover:text-adv-green hover:translate-x-2 inline-block transition-transform">Overland</a></li>
+                        <li><a href="#packages" class="hover:text-adv-green hover:translate-x-2 inline-block transition-transform">Expeditions</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-adv-beige/10 pt-8 flex flex-col md:flex-row justify-between items-center font-sans text-[10px] text-adv-beige/30 font-black uppercase tracking-[0.2em]">
+                <p>&copy; 2026 Alaska Expeditions / Travel Services.</p>
+                <div class="mt-4 md:mt-0 space-x-6 flex">
+                    <a href="#" class="hover:text-adv-orange transition-colors">Privacy Protocol</a>
+                    <a href="#" class="hover:text-adv-orange transition-colors">Terms of Engagement</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts for Premium Interactivity & Webchat Logic -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // 1. Scroll Progress Bar
+            const progressBar = document.getElementById('scroll-progress');
+            window.addEventListener('scroll', () => {
+                const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+                const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const scrolled = (winScroll / height) * 100;
+                progressBar.style.width = scrolled + "%";
+            });
+
+            // 2. Navigation Solid Effect (Fixed to Top on scroll)
+            const navbar = document.getElementById('navbar');
+            
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('py-4', 'header-solid');
+                    navbar.classList.remove('py-6', 'border-transparent');
+                } else {
+                    navbar.classList.remove('py-4', 'header-solid');
+                    navbar.classList.add('py-6', 'border-transparent');
+                }
+            });
+
+            // 3. Mobile Menu Handling
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const closeMenuBtn = document.getElementById('close-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileLinks = document.querySelectorAll('.mobile-link');
+            
+            function toggleMenu() {
+                if (mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.remove('hidden');
+                    setTimeout(() => mobileMenu.classList.remove('opacity-0'), 10);
+                    document.body.style.overflow = 'hidden';
+                } else {
+                    mobileMenu.classList.add('opacity-0');
+                    setTimeout(() => {
+                        mobileMenu.classList.add('hidden');
+                        document.body.style.overflow = '';
+                    }, 300);
+                }
+            }
+
+            mobileMenuBtn.addEventListener('click', toggleMenu);
+            closeMenuBtn.addEventListener('click', toggleMenu);
+            mobileLinks.forEach(link => link.addEventListener('click', toggleMenu));
+
+            // 4. Scroll Reveals
+            const revealElements = document.querySelectorAll('.reveal-up, .reveal-left, .reveal-right');
+            const revealOptions = { threshold: 0.15, rootMargin: "0px 0px -50px 0px" };
+
+            const revealOnScroll = new IntersectionObserver(function(entries, observer) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, revealOptions);
+
+            revealElements.forEach(el => revealOnScroll.observe(el));
+
+            // 5. Webchat Logic
+            const chatToggleBtn = document.getElementById('chat-toggle-btn');
+            const chatWindow = document.getElementById('chat-window');
+            const closeChat = document.getElementById('close-chat');
+            const chatOptions = document.querySelectorAll('.chat-option');
+            const chatMessages = document.getElementById('chat-messages');
+            const chatTriggers = document.querySelectorAll('.open-chat-trigger');
+
+            // Open/Close chat
+            function toggleChat() {
+                chatWindow.classList.toggle('hidden-chat');
+                // Remove notification dot when opened
+                const notifDot = chatToggleBtn.querySelector('.animate-pulse');
+                if(notifDot && !chatWindow.classList.contains('hidden-chat')) {
+                    notifDot.style.display = 'none';
+                }
+            }
+
+            chatToggleBtn.addEventListener('click', toggleChat);
+            closeChat.addEventListener('click', toggleChat);
+
+            // Trigger chat from page buttons
+            chatTriggers.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    if(chatWindow.classList.contains('hidden-chat')) {
+                        toggleChat();
+                    }
+                    // Simulate bot responding to specific context
+                    appendUserMessage("Requesting recon and pricing for this op.");
+                    setTimeout(() => {
+                        appendBotMessage("Copy that. Accessing field data now. Please transmit your estimated deployment dates.");
+                    }, 1000);
+                });
+            });
+
+            // Simulate Chat Options clicking
+            chatOptions.forEach(opt => {
+                opt.addEventListener('click', (e) => {
+                    const text = e.target.innerText;
+                    appendUserMessage(text);
+                    e.target.parentElement.style.display = 'none'; // hide options after clicking
+                    
+                    setTimeout(() => {
+                        if(text.includes('WA')) {
+                            appendBotMessage('Roger. Transitioning comms to automated WhatsApp channel: <br><br><a href="https://wa.me/19074402646" target="_blank" class="bg-adv-whatsapp text-adv-dark px-4 py-2 border-2 border-adv-dark inline-block mt-2 font-black text-[10px] uppercase tracking-widest"><i class="fa-brands fa-whatsapp mr-1"></i> Open WA Link</a>');
+                        } else {
+                            appendBotMessage("Acknowledged. Are you targeting early Summer or late Summer deployment?");
+                        }
+                    }, 800);
+                });
+            });
+
+            function appendUserMessage(text) {
+                const msgHTML = `
+                <div class="flex items-start justify-end max-w-[85%] ml-auto mt-4">
+                    <div class="bg-adv-dark p-3 border-2 border-adv-dark font-body text-sm text-adv-beige rounded-bl-xl shadow-[-4px_4px_0px_0px_rgba(231,111,81,0.5)]">
+                        ${text}
+                    </div>
+                </div>`;
+                chatMessages.insertAdjacentHTML('beforeend', msgHTML);
+                scrollToBottom();
+            }
+
+            function appendBotMessage(text) {
+                const msgHTML = `
+                <div class="flex items-start max-w-[85%] mt-4">
+                    <div class="w-8 h-8 bg-adv-green flex-shrink-0 flex items-center justify-center mr-2 mt-1 border-2 border-adv-dark text-white shadow-sm">
+                        <i class="fa-solid fa-walkie-talkie text-xs"></i>
+                    </div>
+                    <div class="bg-white p-3 border-2 border-adv-dark font-body text-sm text-adv-dark rounded-br-xl shadow-[4px_4px_0px_0px_rgba(26,40,31,0.2)]">
+                        ${text}
+                    </div>
+                </div>`;
+                chatMessages.insertAdjacentHTML('beforeend', msgHTML);
+                scrollToBottom();
+            }
+
+            function scrollToBottom() {
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alaska Travel Services | Modern Experience</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        alaska: {
+                            dark: '#0f172a', // Deep night sky
+                            blue: '#1e3a8a', // Ocean deep
+                            ice: '#e0f2fe',  // Glacier ice
+                            accent: '#0284c7', // Bright sky
+                            gold: '#fbbf24'  // Sunset/Aurora accent
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Styles for smooth animations */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Glassmorphism for the search bar */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-800 antialiased bg-gray-50">
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-transparent py-4">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center cursor-pointer">
+                    <i class="fa-solid fa-mountain-sun text-3xl text-white mr-2" id="nav-logo-icon"></i>
+                    <span id="nav-logo-text" class="font-serif font-bold text-2xl text-white tracking-wider">Alaska<span class="text-alaska-ice font-light">Travel</span></span>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#destinations" class="text-white hover:text-alaska-ice font-medium transition-colors duration-200 nav-link">Destinations</a>
+                    <a href="#experiences" class="text-white hover:text-alaska-ice font-medium transition-colors duration-200 nav-link">Experiences</a>
+                    <a href="#about" class="text-white hover:text-alaska-ice font-medium transition-colors duration-200 nav-link">About Us</a>
+                    <a href="#contact" class="bg-alaska-accent hover:bg-alaska-blue text-white px-6 py-2 rounded-full font-medium transition-all duration-300 transform hover:scale-105 shadow-lg">Plan Your Trip</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-white hover:text-gray-300 focus:outline-none">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Panel (Hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-alaska-dark/95 backdrop-blur-md absolute w-full top-full left-0 shadow-xl border-t border-gray-700">
+            <div class="px-4 pt-2 pb-6 space-y-2">
+                <a href="#destinations" class="block px-3 py-3 text-white hover:bg-alaska-blue rounded-md font-medium">Destinations</a>
+                <a href="#experiences" class="block px-3 py-3 text-white hover:bg-alaska-blue rounded-md font-medium">Experiences</a>
+                <a href="#about" class="block px-3 py-3 text-white hover:bg-alaska-blue rounded-md font-medium">About Us</a>
+                <a href="#contact" class="block px-3 py-3 text-alaska-accent font-bold mt-4">Plan Your Trip &rarr;</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative h-screen flex items-center justify-center overflow-hidden">
+        <!-- Background Image -->
+        <!-- Note: Replace this placeholder image with your asset from your WordPress Media Library -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://picsum.photos/id/1015/1920/1080" alt="Alaska Landscape" class="w-full h-full object-cover object-center" crossorigin="anonymous" />
+            <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-black/60"></div>
+        </div>
+
+        <!-- Hero Content -->
+        <div class="relative z-10 text-center px-4 max-w-5xl mx-auto mt-16">
+            <h1 class="text-5xl md:text-7xl font-serif font-bold text-white mb-6 drop-shadow-lg fade-in-up">Discover the Wild Beauty of Alaska</h1>
+            <p class="text-lg md:text-2xl text-gray-200 mb-10 font-light drop-shadow-md fade-in-up" style="transition-delay: 200ms;">Your premier gateway to glaciers, wildlife, and the northern lights.</p>
+            
+            <!-- Interactive Booking/Search Widget -->
+            <div class="glass-panel p-4 md:p-6 rounded-2xl shadow-2xl fade-in-up mx-auto max-w-4xl" style="transition-delay: 400ms;">
+                <form class="flex flex-col md:flex-row gap-4 items-center justify-between">
+                    <div class="w-full md:w-1/3 text-left relative">
+                        <label class="block text-white text-sm font-medium mb-1 pl-1"><i class="fa-solid fa-location-dot mr-2"></i>Destination</label>
+                        <select class="w-full bg-white/90 text-gray-800 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-alaska-accent cursor-pointer">
+                            <option>Anywhere in Alaska</option>
+                            <option>Denali National Park</option>
+                            <option>Glacier Bay</option>
+                            <option>Kenai Fjords</option>
+                            <option>Inside Passage</option>
+                        </select>
+                    </div>
+                    <div class="w-full md:w-1/3 text-left">
+                        <label class="block text-white text-sm font-medium mb-1 pl-1"><i class="fa-regular fa-calendar mr-2"></i>Travel Dates</label>
+                        <input type="text" placeholder="Select Dates" class="w-full bg-white/90 text-gray-800 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-alaska-accent">
+                    </div>
+                    <div class="w-full md:w-auto mt-5 md:mt-0 pt-1">
+                        <button type="button" class="w-full md:w-auto bg-alaska-accent hover:bg-blue-600 text-white font-bold py-3 px-8 rounded-xl transition-colors duration-300 shadow-lg flex items-center justify-center h-[48px] mt-1">
+                            <i class="fa-solid fa-magnifying-glass mr-2"></i> Explore
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Scroll Down Indicator -->
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-10 animate-bounce">
+            <a href="#destinations" class="text-white hover:text-alaska-ice transition-colors">
+                <i class="fa-solid fa-chevron-down text-3xl drop-shadow-md"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Featured Destinations Section -->
+    <section id="destinations" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in-up">
+                <h2 class="text-sm font-bold text-alaska-accent tracking-widest uppercase mb-2">Top Locations</h2>
+                <h3 class="text-4xl font-serif font-bold text-alaska-dark">Popular Destinations</h3>
+                <div class="w-24 h-1 bg-alaska-accent mx-auto mt-6 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <!-- Card 1 -->
+                <div class="group rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 fade-in-up bg-white cursor-pointer relative" style="transition-delay: 100ms;">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://picsum.photos/id/1036/800/600" alt="Denali" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" crossorigin="anonymous">
+                        <div class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-bold text-alaska-dark">
+                            <i class="fa-solid fa-star text-alaska-gold mr-1"></i> 4.9
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-2xl font-serif font-bold text-alaska-dark mb-2 group-hover:text-alaska-accent transition-colors">Denali National Park</h4>
+                        <p class="text-gray-600 mb-4 line-clamp-2">Experience North America's tallest peak and incredible tundra wildlife on our guided excursions.</p>
+                        <div class="flex justify-between items-center pt-4 border-t border-gray-100">
+                            <span class="text-sm text-gray-500"><i class="fa-regular fa-clock mr-1"></i> 3-5 Days</span>
+                            <span class="text-alaska-accent font-semibold flex items-center group-hover:translate-x-2 transition-transform">View Tours <i class="fa-solid fa-arrow-right ml-2 text-sm"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="group rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 fade-in-up bg-white cursor-pointer relative" style="transition-delay: 200ms;">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://picsum.photos/id/1043/800/600" alt="Glacier Bay" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" crossorigin="anonymous">
+                        <div class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-bold text-alaska-dark">
+                            <i class="fa-solid fa-star text-alaska-gold mr-1"></i> 5.0
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-2xl font-serif font-bold text-alaska-dark mb-2 group-hover:text-alaska-accent transition-colors">Glacier Bay</h4>
+                        <p class="text-gray-600 mb-4 line-clamp-2">Cruise alongside massive tidewater glaciers and spot whales in this pristine marine sanctuary.</p>
+                        <div class="flex justify-between items-center pt-4 border-t border-gray-100">
+                            <span class="text-sm text-gray-500"><i class="fa-regular fa-clock mr-1"></i> 1-2 Days</span>
+                            <span class="text-alaska-accent font-semibold flex items-center group-hover:translate-x-2 transition-transform">View Tours <i class="fa-solid fa-arrow-right ml-2 text-sm"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="group rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 fade-in-up bg-white cursor-pointer relative" style="transition-delay: 300ms;">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://picsum.photos/id/1044/800/600" alt="Northern Lights" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" crossorigin="anonymous">
+                        <div class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-bold text-alaska-dark">
+                            <i class="fa-solid fa-star text-alaska-gold mr-1"></i> 4.8
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-2xl font-serif font-bold text-alaska-dark mb-2 group-hover:text-alaska-accent transition-colors">Fairbanks Aurora</h4>
+                        <p class="text-gray-600 mb-4 line-clamp-2">Journey to the interior for spectacular, uninterrupted views of the magical Northern Lights.</p>
+                        <div class="flex justify-between items-center pt-4 border-t border-gray-100">
+                            <span class="text-sm text-gray-500"><i class="fa-regular fa-clock mr-1"></i> 4-6 Days</span>
+                            <span class="text-alaska-accent font-semibold flex items-center group-hover:translate-x-2 transition-transform">View Tours <i class="fa-solid fa-arrow-right ml-2 text-sm"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12 fade-in-up" style="transition-delay: 400ms;">
+                <button class="border-2 border-alaska-dark text-alaska-dark hover:bg-alaska-dark hover:text-white px-8 py-3 rounded-full font-bold transition-all duration-300">
+                    Explore All Destinations
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Experiences Section (Tabs) -->
+    <section id="experiences" class="py-24 bg-alaska-dark text-white relative overflow-hidden">
+        <!-- Decorative SVG background -->
+        <svg class="absolute top-0 left-0 w-full h-full opacity-5 pointer-events-none" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <path d="M0,100 C30,80 70,80 100,100 L100,0 L0,0 Z" fill="#ffffff" />
+        </svg>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12 fade-in-up">
+                <div>
+                    <h2 class="text-sm font-bold text-alaska-accent tracking-widest uppercase mb-2">Curated Activities</h2>
+                    <h3 class="text-4xl font-serif font-bold">Unforgettable Experiences</h3>
+                </div>
+                
+                <!-- Tab Buttons -->
+                <div class="flex space-x-2 mt-6 md:mt-0 bg-gray-800/50 p-1 rounded-xl backdrop-blur-sm">
+                    <button class="tab-btn active px-6 py-2 rounded-lg font-medium text-sm transition-all bg-alaska-accent text-white" data-target="tab-wildlife">Wildlife</button>
+                    <button class="tab-btn px-6 py-2 rounded-lg font-medium text-sm transition-all hover:bg-gray-700 text-gray-300" data-target="tab-cruises">Cruises</button>
+                    <button class="tab-btn px-6 py-2 rounded-lg font-medium text-sm transition-all hover:bg-gray-700 text-gray-300" data-target="tab-flights">Flightseeing</button>
+                </div>
+            </div>
+
+            <!-- Tab Content Area -->
+            <div class="relative bg-gray-800 rounded-3xl overflow-hidden shadow-2xl fade-in-up">
+                
+                <!-- Wildlife Tab -->
+                <div id="tab-wildlife" class="tab-content active">
+                    <div class="flex flex-col md:flex-row">
+                        <div class="w-full md:w-1/2 p-8 md:p-12 flex flex-col justify-center">
+                            <div class="w-12 h-12 bg-alaska-accent/20 rounded-full flex items-center justify-center mb-6">
+                                <i class="fa-solid fa-paw text-alaska-accent text-xl"></i>
+                            </div>
+                            <h4 class="text-3xl font-serif font-bold mb-4">Bear Viewing & Wildlife Safaris</h4>
+                            <p class="text-gray-300 mb-6 leading-relaxed">Get up close (but safely!) with Alaska's "Big Five": bears, moose, caribou, Dall sheep, and wolves. Our expert local guides know the secret spots for the best photography and observation without disturbing the natural habitat.</p>
+                            <ul class="space-y-3 mb-8 text-gray-400">
+                                <li class="flex items-center"><i class="fa-solid fa-check text-alaska-accent mr-3"></i> Guided by certified naturalists</li>
+                                <li class="flex items-center"><i class="fa-solid fa-check text-alaska-accent mr-3"></i> Premium optics and gear provided</li>
+                                <li class="flex items-center"><i class="fa-solid fa-check text-alaska-accent mr-3"></i> Small group sizes for intimate experiences</li>
+                            </ul>
+                            <div>
+                                <a href="#" class="text-alaska-accent font-bold hover:text-white transition-colors flex items-center">Discover Wildlife Tours <i class="fa-solid fa-arrow-right ml-2"></i></a>
+                            </div>
+                        </div>
+                        <div class="w-full md:w-1/2 min-h-[400px]">
+                            <img src="https://picsum.photos/id/1020/1000/800" alt="Alaskan Bear" class="w-full h-full object-cover" crossorigin="anonymous">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cruises Tab -->
+                <div id="tab-cruises" class="tab-content">
+                    <div class="flex flex-col md:flex-row">
+                        <div class="w-full md:w-1/2 p-8 md:p-12 flex flex-col justify-center">
+                            <div class="w-12 h-12 bg-alaska-accent/20 rounded-full flex items-center justify-center mb-6">
+                                <i class="fa-solid fa-ship text-alaska-accent text-xl"></i>
+                            </div>
+                            <h4 class="text-3xl font-serif font-bold mb-4">Glacier & Fjord Day Cruises</h4>
+                            <p class="text-gray-300 mb-6 leading-relaxed">Hear the thunderous roar of calving glaciers and spot orcas breaching in the frigid waters. Our luxury catamarans navigate deep into fjords where larger ships simply cannot go.</p>
+                            <ul class="space-y-3 mb-8 text-gray-400">
+                                <li class="flex items-center"><i class="fa-solid fa-check text-alaska-accent mr-3"></i> Guaranteed glacier viewing</li>
+                                <li class="flex items-center"><i class="fa-solid fa-check text-alaska-accent mr-3"></i> Heated indoor viewing decks</li>
+                                <li class="flex items-center"><i class="fa-solid fa-check text-alaska-accent mr-3"></i> Wild Alaskan salmon bake included</li>
+                            </ul>
+                            <div>
+                                <a href="#" class="text-alaska-accent font-bold hover:text-white transition-colors flex items-center">View Cruise Options <i class="fa-solid fa-arrow-right ml-2"></i></a>
+                            </div>
+                        </div>
+                        <div class="w-full md:w-1/2 min-h-[400px]">
+                            <img src="https://picsum.photos/id/124/1000/800" alt="Glacier Cruise" class="w-full h-full object-cover" crossorigin="anonymous">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Flightseeing Tab -->
+                <div id="tab-flights" class="tab-content">
+                    <div class="flex flex-col md:flex-row">
+                        <div class="w-full md:w-1/2 p-8 md:p-12 flex flex-col justify-center">
+                            <div class="w-12 h-12 bg-alaska-accent/20 rounded-full flex items-center justify-center mb-6">
+                                <i class="fa-solid fa-plane-departure text-alaska-accent text-xl"></i>
+                            </div>
+                            <h4 class="text-3xl font-serif font-bold mb-4">Helicopter & Bush Plane Tours</h4>
+                            <p class="text-gray-300 mb-6 leading-relaxed">Soar above the clouds and witness the vastness of Alaska from the air. Land directly on a glacier, take a dog sled ride on the ice, or fly around the towering peaks of the Alaska Range.</p>
+                            <ul class="space-y-3 mb-8 text-gray-400">
+                                <li class="flex items-center"><i class="fa-solid fa-check text-alaska-accent mr-3"></i> Glacier landings available</li>
+                                <li class="flex items-center"><i class="fa-solid fa-check text-alaska-accent mr-3"></i> Window seat guaranteed for every passenger</li>
+                                <li class="flex items-center"><i class="fa-solid fa-check text-alaska-accent mr-3"></i> Expert bush pilot narration</li>
+                            </ul>
+                            <div>
+                                <a href="#" class="text-alaska-accent font-bold hover:text-white transition-colors flex items-center">Book a Flight <i class="fa-solid fa-arrow-right ml-2"></i></a>
+                            </div>
+                        </div>
+                        <div class="w-full md:w-1/2 min-h-[400px]">
+                            <img src="https://picsum.photos/id/114/1000/800" alt="Bush Plane" class="w-full h-full object-cover" crossorigin="anonymous">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Value Proposition / Call to Action -->
+    <section class="py-20 bg-alaska-ice relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white rounded-3xl p-8 md:p-16 shadow-xl text-center md:text-left flex flex-col md:flex-row items-center justify-between fade-in-up">
+                <div class="md:w-2/3 mb-8 md:mb-0">
+                    <h3 class="text-3xl md:text-4xl font-serif font-bold text-alaska-dark mb-4">Ready to build your dream Alaskan itinerary?</h3>
+                    <p class="text-gray-600 text-lg">Our local travel experts handle the logistics so you can focus on the adventure. Contact us for a free consultation.</p>
+                </div>
+                <div class="md:w-1/3 flex justify-center md:justify-end">
+                    <a href="#contact" class="bg-alaska-blue hover:bg-alaska-dark text-white text-lg font-bold py-4 px-10 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg flex items-center">
+                        Contact Experts <i class="fa-solid fa-paper-plane ml-3"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-alaska-dark text-gray-300 pt-16 pb-8 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                
+                <!-- Brand -->
+                <div class="col-span-1 md:col-span-1">
+                    <div class="flex items-center mb-6">
+                        <i class="fa-solid fa-mountain-sun text-2xl text-alaska-accent mr-2"></i>
+                        <span class="font-serif font-bold text-xl text-white tracking-wider">Alaska<span class="text-alaska-accent font-light">Travel</span></span>
+                    </div>
+                    <p class="text-sm text-gray-400 mb-6 leading-relaxed">Your trusted local partners for authentic Alaskan adventures, tours, and bespoke travel planning.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-alaska-accent hover:text-white transition-colors"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-alaska-accent hover:text-white transition-colors"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-alaska-accent hover:text-white transition-colors"><i class="fa-brands fa-twitter"></i></a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-white font-bold mb-6 uppercase tracking-wider text-sm">Quick Links</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="#" class="hover:text-alaska-accent transition-colors">Our Tours</a></li>
+                        <li><a href="#" class="hover:text-alaska-accent transition-colors">Destinations</a></li>
+                        <li><a href="#" class="hover:text-alaska-accent transition-colors">Travel Info</a></li>
+                        <li><a href="#" class="hover:text-alaska-accent transition-colors">About Us</a></li>
+                        <li><a href="#" class="hover:text-alaska-accent transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div>
+                    <h4 class="text-white font-bold mb-6 uppercase tracking-wider text-sm">Contact Us</h4>
+                    <ul class="space-y-4 text-sm">
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-location-dot mt-1 mr-3 text-alaska-accent"></i>
+                            <span>Anchorage, Alaska<br>USA</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fa-solid fa-phone mr-3 text-alaska-accent"></i>
+                            <span>1-800-ALASKA-GO</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fa-solid fa-envelope mr-3 text-alaska-accent"></i>
+                            <span>info@alaskatravelservices.net</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Newsletter -->
+                <div>
+                    <h4 class="text-white font-bold mb-6 uppercase tracking-wider text-sm">Newsletter</h4>
+                    <p class="text-sm text-gray-400 mb-4">Subscribe for seasonal deals and travel inspiration.</p>
+                    <form class="flex flex-col space-y-2">
+                        <input type="email" placeholder="Your Email Address" class="bg-gray-800 text-white px-4 py-3 rounded-lg focus:outline-none focus:ring-1 focus:ring-alaska-accent border border-gray-700">
+                        <button type="button" class="bg-alaska-accent hover:bg-blue-600 text-white font-bold py-3 px-4 rounded-lg transition-colors w-full">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500">
+                <p>&copy; 2026 Alaska Travel Services. All rights reserved.</p>
+                <div class="flex space-x-4 mt-4 md:mt-0">
+                    <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+                    <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Scripts -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // 1. Scroll Effect for Navbar
+            const navbar = document.getElementById('navbar');
+            const navLinks = document.querySelectorAll('.nav-link');
+            const logoText = document.getElementById('nav-logo-text');
+            const logoIcon = document.getElementById('nav-logo-icon');
+            
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('bg-white', 'shadow-md', 'py-3');
+                    navbar.classList.remove('bg-transparent', 'py-4');
+                    // Change text to dark
+                    navLinks.forEach(link => {
+                        link.classList.remove('text-white');
+                        link.classList.add('text-gray-800');
+                    });
+                    logoText.classList.remove('text-white');
+                    logoText.classList.add('text-alaska-dark');
+                    logoIcon.classList.remove('text-white');
+                    logoIcon.classList.add('text-alaska-accent');
+                    document.getElementById('mobile-menu-btn').classList.remove('text-white');
+                    document.getElementById('mobile-menu-btn').classList.add('text-alaska-dark');
+                } else {
+                    navbar.classList.add('bg-transparent', 'py-4');
+                    navbar.classList.remove('bg-white', 'shadow-md', 'py-3');
+                    // Change text to white
+                    navLinks.forEach(link => {
+                        link.classList.add('text-white');
+                        link.classList.remove('text-gray-800');
+                    });
+                    logoText.classList.add('text-white');
+                    logoText.classList.remove('text-alaska-dark');
+                    logoIcon.classList.add('text-white');
+                    logoIcon.classList.remove('text-alaska-accent');
+                    document.getElementById('mobile-menu-btn').classList.add('text-white');
+                    document.getElementById('mobile-menu-btn').classList.remove('text-alaska-dark');
+                }
+            });
+
+            // 2. Mobile Menu Toggle
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // Close mobile menu on link click
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+
+            // 3. Experience Tabs Logic
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Remove active from all
+                    tabBtns.forEach(b => {
+                        b.classList.remove('active', 'bg-alaska-accent', 'text-white');
+                        b.classList.add('hover:bg-gray-700', 'text-gray-300');
+                    });
+                    tabContents.forEach(c => c.classList.remove('active'));
+
+                    // Add active to clicked
+                    btn.classList.add('active', 'bg-alaska-accent', 'text-white');
+                    btn.classList.remove('hover:bg-gray-700', 'text-gray-300');
+                    
+                    const targetId = btn.getAttribute('data-target');
+                    document.getElementById(targetId).classList.add('active');
+                });
+            });
+
+            // 4. Scroll Animation Observer (Fade In Up)
+            const fadeElements = document.querySelectorAll('.fade-in-up');
+            
+            const appearOptions = {
+                threshold: 0.15,
+                rootMargin: "0px 0px -50px 0px"
+            };
+
+            const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) {
+                        return;
+                    } else {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, appearOptions);
+
+            fadeElements.forEach(el => {
+                appearOnScroll.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>
